@@ -27,8 +27,10 @@ dependencies:
   eva_icons_flutter: ^3.0.0
   firebase_auth: ^1.2.0
   firebase_core: ^1.2.0
+  firebase_storage: ^8.1.1
   font_awesome_flutter: ^9.0.0
   google_sign_in: ^5.0.4
+  image_picker: ^0.8.0+1
   page_transition: ^2.0.2
   provider: ^5.0.0
 

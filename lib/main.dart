@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:the_social/constants/Constantcolors.dart';
 import 'package:the_social/screens/landingpage/landinghelpers.dart';
 import 'package:the_social/screens/splashscreen/splashscreen.dart';
+import 'package:the_social/services/authentication.dart';
 
 void main() {
   runApp(MyApp());
@@ -21,6 +22,9 @@ class MyApp extends StatelessWidget {
               canvasColor: Colors.transparent),
           home: splashscreen(),
         ),
-        providers: [ChangeNotifierProvider(create: (_) => landinghelpers())]);
+        providers: [
+          ChangeNotifierProvider(create: (_) => authentication()),
+          ChangeNotifierProvider(create: (_) => landinghelpers())
+        ]);
   }
 }
