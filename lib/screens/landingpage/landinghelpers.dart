@@ -1,6 +1,10 @@
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter/material.dart';
+import 'package:page_transition/page_transition.dart';
+import 'package:provider/provider.dart';
 import 'package:the_social/constants/Constantcolors.dart';
+import 'package:the_social/screens/Homepage/homepage.dart';
+import 'package:the_social/services/authentication.dart';
 
 class landinghelpers with ChangeNotifier {
   Widget bodyimage(BuildContext context) {
@@ -93,6 +97,17 @@ class landinghelpers with ChangeNotifier {
                 ),
               ),
               GestureDetector(
+                onTap: () {
+                  Provider.of<authentication>(context, listen: false)
+                      .signInWithGoogle()
+                      .whenComplete(() {
+                    Navigator.pushReplacement(
+                        context,
+                        PageTransition(
+                            child: homepage(),
+                            type: PageTransitionType.bottomToTop));
+                  });
+                },
                 child: Container(
                   child: Icon(
                     EvaIcons.googleOutline,
