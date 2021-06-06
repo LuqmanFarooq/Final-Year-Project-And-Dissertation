@@ -31,6 +31,10 @@ class authentication with ChangeNotifier {
     notifyListeners();
   }
 
+  Future logOutViaEmail() {
+    return firebaseAuth.signOut();
+  }
+
   Future signInWithGoogle() async {
     final GoogleSignInAccount googleSignInAccount = await googleSignIn.signIn();
     final GoogleSignInAuthentication googleSignInAuthentication =
@@ -46,5 +50,9 @@ class authentication with ChangeNotifier {
     userUid = user.uid;
     print('Google User uid => $userUid');
     notifyListeners();
+  }
+
+  Future signOutWithGoogle() async {
+    return googleSignIn.signOut();
   }
 }
