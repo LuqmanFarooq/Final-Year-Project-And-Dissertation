@@ -98,6 +98,7 @@ class landinghelpers with ChangeNotifier {
               ),
               GestureDetector(
                 onTap: () {
+                  print("sign in through google");
                   Provider.of<authentication>(context, listen: false)
                       .signInWithGoogle()
                       .whenComplete(() {
