@@ -8,6 +8,7 @@ class landingpage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        resizeToAvoidBottomInset: true,
         backgroundColor: constantColors.whiteColor,
         body: Stack(
           children: [
