@@ -12,6 +12,32 @@ class landingservice with ChangeNotifier {
   TextEditingController userEmailController = TextEditingController();
   TextEditingController userNameController = TextEditingController();
   TextEditingController userPasswordController = TextEditingController();
+
+  showUserAvatar(BuildContext context) {
+    return showModalBottomSheet(
+        context: context,
+        builder: (context) {
+          return Container(
+            child: Column(
+              children: [
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 150.0),
+                  child: Divider(
+                    thickness: 4.0,
+                    color: constantColors.whiteColor,
+                  ),
+                ),
+              ],
+            ),
+            height: MediaQuery.of(context).size.height * 0.30,
+            width: MediaQuery.of(context).size.width,
+            decoration: BoxDecoration(
+                color: constantColors.blueGreyColor,
+                borderRadius: BorderRadius.circular(15.0)),
+          );
+        });
+  }
+
   Widget passwordLessSignIn(BuildContext context) {
     return SizedBox(
       height: MediaQuery.of(context).size.height * 0.40,
