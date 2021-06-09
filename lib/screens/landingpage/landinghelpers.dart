@@ -5,6 +5,7 @@ import 'package:provider/provider.dart';
 import 'package:the_social/constants/Constantcolors.dart';
 import 'package:the_social/screens/Homepage/homepage.dart';
 import 'package:the_social/screens/landingpage/landingservices.dart';
+import 'package:the_social/screens/landingpage/landingutils.dart';
 import 'package:the_social/services/authentication.dart';
 
 class landinghelpers with ChangeNotifier {
@@ -190,8 +191,8 @@ class landinghelpers with ChangeNotifier {
                                 fontSize: 18.0,
                                 fontWeight: FontWeight.bold)),
                         onPressed: () {
-                          Provider.of<landingservice>(context, listen: false)
-                              .signinSheet(context);
+                          Provider.of<landingutls>(context, listen: false)
+                              .selectAvatarOptionssheet(context);
                         })
                   ],
                 )
