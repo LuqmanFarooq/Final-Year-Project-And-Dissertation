@@ -25,7 +25,7 @@ class landingutls with ChangeNotifier {
     userAvatar != null
         ? Provider.of<landingservice>(context, listen: false)
             .showUserAvatar(context)
-        : print('Image uplad error');
+        : print('Image upload error');
     notifyListeners();
   }
 
@@ -44,7 +44,7 @@ class landingutls with ChangeNotifier {
                   ),
                 ),
                 Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     MaterialButton(
                         color: constantColors.blueColor,

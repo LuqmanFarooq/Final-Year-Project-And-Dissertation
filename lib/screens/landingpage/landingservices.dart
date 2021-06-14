@@ -30,12 +30,15 @@ class landingservice with ChangeNotifier {
                     color: constantColors.whiteColor,
                   ),
                 ),
-                CircleAvatar(
-                    radius: 80.0,
-                    backgroundColor: constantColors.transperant,
-                    backgroundImage: FileImage(
-                        Provider.of<landingutls>(context, listen: false)
-                            .userAvatar)),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: CircleAvatar(
+                      radius: 60.0,
+                      backgroundColor: constantColors.transperant,
+                      backgroundImage: FileImage(
+                          Provider.of<landingutls>(context, listen: false)
+                              .userAvatar)),
+                ),
                 Container(
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -84,7 +87,7 @@ class landingservice with ChangeNotifier {
       height: MediaQuery.of(context).size.height * 0.40,
       width: MediaQuery.of(context).size.width,
       child: StreamBuilder<QuerySnapshot>(
-          stream: FirebaseFirestore.instance.collection('allUsers').snapshots(),
+          stream: FirebaseFirestore.instance.collection('users').snapshots(),
           builder: (context, snapshot) {
             if (snapshot.connectionState == ConnectionState.waiting) {
               return Center(
@@ -103,8 +106,9 @@ class landingservice with ChangeNotifier {
                       onPressed: () {},
                     ),
                     leading: CircleAvatar(
+                      backgroundColor: constantColors.transperant,
                       backgroundImage:
-                          NetworkImage(documentSnapshot.get('userimaage')),
+                          NetworkImage(documentSnapshot.get('userimage')),
                     ),
                     subtitle: Text(
                       documentSnapshot.get('useremail'),
@@ -310,6 +314,20 @@ class landingservice with ChangeNotifier {
                                 .createAccount(userEmailController.text,
                                     userPasswordController.text)
                                 .whenComplete(() {
+                              print("Creating collection");
+                              Provider.of<firebaseopertrations>(context,
+                                      listen: false)
+                                  .createUserCollection(context, {
+                                'useruid': Provider.of<authentication>(context,
+                                        listen: false)
+                                    .getUserid,
+                                'useremail': userEmailController.text,
+                                'username': userNameController.text,
+                                'userimage': Provider.of<landingutls>(context,
+                                        listen: false)
+                                    .getuserAvatarUrl
+                              });
+                            }).whenComplete(() {
                               Navigator.pushReplacement(
                                   context,
                                   PageTransition(
