@@ -8,9 +8,16 @@ class homepage extends StatefulWidget {
 
 class _homepageState extends State<homepage> {
   ConstantColors constantColors = ConstantColors();
+  final PageController homepageController = PageController();
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(backgroundColor: constantColors.darkColor);
+    return Scaffold(
+      backgroundColor: constantColors.darkColor,
+      body: PageView(
+        controller: homepageController,
+        children: [],
+      ),
+    );
   }
 }
