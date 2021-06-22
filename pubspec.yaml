@@ -25,6 +25,7 @@ dependencies:
     sdk: flutter
   cloud_firestore: ^2.2.1
   cupertino_icons: ^1.0.2
+  custom_navigation_bar: ^0.8.1
   eva_icons_flutter: ^3.0.0
   firebase_auth: ^1.2.0
   firebase_core: ^1.2.0
