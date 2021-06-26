@@ -8,6 +8,11 @@ import 'package:the_social/services/authentication.dart';
 class firebaseopertrations with ChangeNotifier {
   UploadTask imageuploadTask;
 
+  String initUserEmail, initUserName, initUserImage;
+  String get getInitUserName => initUserName;
+  String get getInitUserEmail => initUserEmail;
+  String get getInitUserImage => initUserImage;
+
   Future uploaduserAvatar(BuildContext context) async {
     Reference imageRefrence = FirebaseStorage.instance.ref().child(
         'userProfileAvatar/${Provider.of<landingutls>(context, listen: false).getuserAvatar.path}${TimeOfDay.now()}');
@@ -33,5 +38,22 @@ class firebaseopertrations with ChangeNotifier {
         .collection('users')
         .doc(Provider.of<authentication>(context, listen: false).getUserid)
         .set(data);
+  }
+
+  Future initUserData(BuildContext context) async {
+    return FirebaseFirestore.instance
+        .collection('users')
+        .doc(Provider.of<authentication>(context, listen: false).getUserid)
+        .get()
+        .then((doc) {
+      print("Fetching user data");
+      initUserEmail = doc.data()['username'];
+      initUserName = doc.data()['useremail'];
+      initUserImage = doc.data()['userimage'];
+      print(initUserName);
+      print(initUserEmail);
+      print(initUserImage);
+      notifyListeners();
+    });
   }
 }
