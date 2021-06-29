@@ -50,6 +50,7 @@ flutter:
   uses-material-design: true
   assets:
     - assets/images/login.png
+    - assets/images/empty.png
   fonts:
     - family: Poppins
       fonts:

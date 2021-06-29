@@ -6,6 +6,7 @@ import 'package:the_social/screens/Chatroom/chatroom.dart';
 import 'package:the_social/screens/Feed/feed.dart';
 import 'package:the_social/screens/Homepage/homepagehelpers.dart';
 import 'package:the_social/screens/Profile/profile.dart';
+import 'package:the_social/services/firebaseoperations.dart';
 
 class homepage extends StatefulWidget {
   @override
@@ -16,6 +17,14 @@ class _homepageState extends State<homepage> {
   ConstantColors constantColors = ConstantColors();
   final PageController homepageController = PageController();
   int pageIndex = 0;
+
+  @override
+  void initState() {
+    Provider.of<firebaseopertrations>(context, listen: false)
+        .initUserData(context);
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -32,6 +41,6 @@ class _homepageState extends State<homepage> {
         ),
         bottomNavigationBar:
             Provider.of<homepagehelpers>(context, listen: false)
-                .bottomNavBar(pageIndex, homepageController));
+                .bottomNavBar(context, pageIndex, homepageController));
   }
 }
