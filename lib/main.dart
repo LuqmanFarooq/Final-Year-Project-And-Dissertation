@@ -10,6 +10,7 @@ import 'package:the_social/screens/landingpage/landingutils.dart';
 import 'package:the_social/screens/splashscreen/splashscreen.dart';
 import 'package:the_social/services/authentication.dart';
 import 'package:the_social/services/firebaseoperations.dart';
+import 'package:the_social/utils/uploadpost.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -31,12 +32,13 @@ class MyApp extends StatelessWidget {
           home: splashscreen(),
         ),
         providers: [
-          ChangeNotifierProvider(create: (_) => firebaseopertrations()),
-          ChangeNotifierProvider(create: (_) => landingutls()),
+          ChangeNotifierProvider(create: (_) => uploadpost()),
           ChangeNotifierProvider(create: (_) => profilehelpers()),
           ChangeNotifierProvider(create: (_) => homepagehelpers()),
-          ChangeNotifierProvider(create: (_) => authentication()),
+          ChangeNotifierProvider(create: (_) => landingutls()),
+          ChangeNotifierProvider(create: (_) => firebaseopertrations()),
           ChangeNotifierProvider(create: (_) => landingservice()),
+          ChangeNotifierProvider(create: (_) => authentication()),
           ChangeNotifierProvider(create: (_) => landinghelpers())
         ]);
   }

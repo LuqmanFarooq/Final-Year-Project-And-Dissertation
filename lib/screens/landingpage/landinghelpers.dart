@@ -89,6 +89,15 @@ class landinghelpers with ChangeNotifier {
                 ),
               ),
               GestureDetector(
+                onTap: () {
+                  AlertDialog(
+                    title: Text(
+                      "Under Developement !",
+                      style: TextStyle(
+                          color: constantColors.whiteColor, fontSize: 16.0),
+                    ),
+                  );
+                },
                 child: Container(
                   child: Icon(
                     EvaIcons.facebookOutline,
@@ -104,15 +113,23 @@ class landinghelpers with ChangeNotifier {
               GestureDetector(
                 onTap: () {
                   print("sign in through google");
-                  Provider.of<authentication>(context, listen: false)
-                      .signInWithGoogle()
-                      .whenComplete(() {
-                    Navigator.pushReplacement(
-                        context,
-                        PageTransition(
-                            child: homepage(),
-                            type: PageTransitionType.bottomToTop));
-                  });
+                  AlertDialog(
+                    backgroundColor: constantColors.darkColor,
+                    title: Text(
+                      "Under Developement !",
+                      style: TextStyle(
+                          color: constantColors.whiteColor, fontSize: 16.0),
+                    ),
+                  );
+                  // Provider.of<authentication>(context, listen: false)
+                  //     .signInWithGoogle()
+                  //     .whenComplete(() {
+                  //   Navigator.pushReplacement(
+                  //       context,
+                  //       PageTransition(
+                  //           child: homepage(),
+                  //           type: PageTransitionType.bottomToTop));
+                  // });
                 },
                 child: Container(
                   child: Icon(

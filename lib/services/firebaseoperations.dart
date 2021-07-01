@@ -41,7 +41,7 @@ class firebaseopertrations with ChangeNotifier {
   }
 
   Future initUserData(BuildContext context) async {
-    return FirebaseFirestore.instance
+    return await FirebaseFirestore.instance
         .collection('users')
         .doc(Provider.of<authentication>(context, listen: false).getUserid)
         .get()

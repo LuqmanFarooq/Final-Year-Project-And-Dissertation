@@ -29,8 +29,9 @@ class profilehelpers with ChangeNotifier {
                     child: CircleAvatar(
                       backgroundColor: constantColors.transperant,
                       radius: 55.0,
-                      backgroundImage:
-                          NetworkImage(snapshot.data.data()['userimage']),
+                      backgroundImage: NetworkImage(snapshot.data
+                              .data()['userimage'] ??
+                          'https://www.solidbackgrounds.com/images/950x350/950x350-white-solid-color-background.jpg'),
                     ),
                   ),
                 ),

@@ -21,6 +21,8 @@ class landingservice with ChangeNotifier {
         context: context,
         builder: (context) {
           return Container(
+            height: MediaQuery.of(context).size.height * 0.30,
+            width: MediaQuery.of(context).size.width,
             child: Column(
               children: [
                 Padding(
@@ -73,8 +75,6 @@ class landingservice with ChangeNotifier {
                 ),
               ],
             ),
-            height: MediaQuery.of(context).size.height * 0.30,
-            width: MediaQuery.of(context).size.width,
             decoration: BoxDecoration(
                 color: constantColors.blueGreyColor,
                 borderRadius: BorderRadius.circular(15.0)),
@@ -106,18 +106,18 @@ class landingservice with ChangeNotifier {
                       onPressed: () {},
                     ),
                     leading: CircleAvatar(
-                      backgroundColor: constantColors.transperant,
-                      backgroundImage:
-                          NetworkImage(documentSnapshot.get('userimage')),
-                    ),
+                        backgroundColor: constantColors.transperant,
+                        backgroundImage: NetworkImage(documentSnapshot[
+                                'userimage'] ??
+                            'https://www.solidbackgrounds.com/images/950x350/950x350-white-solid-color-background.jpg')),
                     subtitle: Text(
-                      documentSnapshot.get('useremail'),
+                      documentSnapshot['useremail'],
                       style: TextStyle(
                           fontWeight: FontWeight.bold,
                           color: constantColors.greenColor),
                     ),
                     title: Text(
-                      documentSnapshot.get('username'),
+                      documentSnapshot['username'],
                       style: TextStyle(
                           fontWeight: FontWeight.bold,
                           color: constantColors.greenColor),

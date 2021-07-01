@@ -32,9 +32,11 @@ class homepagehelpers with ChangeNotifier {
             icon: CircleAvatar(
           radius: 35.0,
           backgroundColor: constantColors.blueGreyColor,
-          backgroundImage: NetworkImage(
-              Provider.of<firebaseopertrations>(context, listen: false)
-                  .getInitUserImage),
+          backgroundImage: NetworkImage(Provider.of<firebaseopertrations>(
+                      context,
+                      listen: false)
+                  .getInitUserImage ??
+              'https://www.solidbackgrounds.com/images/950x350/950x350-white-solid-color-background.jpg'),
         )),
       ],
     );
