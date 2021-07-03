@@ -98,23 +98,50 @@ class landingservice with ChangeNotifier {
                 children:
                     snapshot.data.docs.map((DocumentSnapshot documentSnapshot) {
                   return ListTile(
-                    trailing: IconButton(
-                      icon: Icon(
-                        FontAwesomeIcons.trashAlt,
-                        color: constantColors.redColor,
+                    trailing: Container(
+                      width: 120.0,
+                      height: 50.0,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          IconButton(
+                            icon: Icon(
+                              FontAwesomeIcons.check,
+                              color: constantColors.blueColor,
+                            ),
+                            onPressed: () {
+                              Provider.of<authentication>(context,
+                                      listen: false)
+                                  .logIntoAccount(documentSnapshot['useremail'],
+                                      documentSnapshot['userpassword'])
+                                  .whenComplete(() {
+                                Navigator.pushReplacement(
+                                    context,
+                                    PageTransition(
+                                        child: homepage(),
+                                        type: PageTransitionType.leftToRight));
+                              });
+                            },
+                          ),
+                          IconButton(
+                            icon: Icon(
+                              FontAwesomeIcons.trashAlt,
+                              color: constantColors.redColor,
+                            ),
+                            onPressed: () {},
+                          ),
+                        ],
                       ),
-                      onPressed: () {},
                     ),
                     leading: CircleAvatar(
-                        backgroundColor: constantColors.transperant,
-                        backgroundImage: NetworkImage(documentSnapshot[
-                                'userimage'] ??
-                            'https://www.solidbackgrounds.com/images/950x350/950x350-white-solid-color-background.jpg')),
+                        backgroundColor: constantColors.darkColor,
+                        backgroundImage:
+                            NetworkImage(documentSnapshot['userimage'])),
                     subtitle: Text(
                       documentSnapshot['useremail'],
                       style: TextStyle(
                           fontWeight: FontWeight.bold,
-                          color: constantColors.greenColor),
+                          color: constantColors.whiteColor),
                     ),
                     title: Text(
                       documentSnapshot['username'],
@@ -322,6 +349,7 @@ class landingservice with ChangeNotifier {
                                         listen: false)
                                     .getUserid,
                                 'useremail': userEmailController.text,
+                                'userpassword': userPasswordController.text,
                                 'username': userNameController.text,
                                 'userimage': Provider.of<landingutls>(context,
                                         listen: false)
