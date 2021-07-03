@@ -28,7 +28,7 @@ class uploadpost with ChangeNotifier {
     uploadpostImageVal == null
         ? print('Select Image')
         : uploadPostImage = File(uploadpostImageVal.path);
-    print(uploadPostImage.path);
+    print(uploadpostImageVal.path);
 
     uploadPostImage != null
         ? showPostImage(context)
@@ -40,6 +40,7 @@ class uploadpost with ChangeNotifier {
     Reference imageReferance = FirebaseStorage.instance
         .ref()
         .child('posts/${uploadPostImage.path}/${TimeOfDay.now()}');
+    imagePostUploadTask = imageReferance.putFile(uploadPostImage);
     await imagePostUploadTask.whenComplete(() {
       print("Posting image to firebase storage");
     });
@@ -278,6 +279,7 @@ class uploadpost with ChangeNotifier {
                     Provider.of<firebaseopertrations>(context, listen: false)
                         .uploadPostData(captionController.text, {
                       'caption': captionController.text,
+                      'postimage': getUploadPostImageUrl,
                       'username': Provider.of<firebaseopertrations>(context,
                               listen: false)
                           .getInitUserName,
