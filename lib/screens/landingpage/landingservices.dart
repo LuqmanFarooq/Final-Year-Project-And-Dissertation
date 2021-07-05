@@ -128,7 +128,11 @@ class landingservice with ChangeNotifier {
                               FontAwesomeIcons.trashAlt,
                               color: constantColors.redColor,
                             ),
-                            onPressed: () {},
+                            onPressed: () {
+                              Provider.of<firebaseopertrations>(context,
+                                      listen: false)
+                                  .deleteUserData(documentSnapshot['useruid']);
+                            },
                           ),
                         ],
                       ),
