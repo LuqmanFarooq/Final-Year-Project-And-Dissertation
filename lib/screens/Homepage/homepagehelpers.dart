@@ -36,7 +36,7 @@ class homepagehelpers with ChangeNotifier {
                       context,
                       listen: false)
                   .getInitUserImage ??
-              'https://www.solidbackgrounds.com/images/950x350/950x350-white-solid-color-background.jpg'),
+              "https://www.solidbackgrounds.com/images/950x350/950x350-white-solid-color-background.jpg"),
         )),
       ],
     );

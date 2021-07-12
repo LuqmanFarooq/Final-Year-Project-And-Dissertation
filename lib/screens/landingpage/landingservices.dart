@@ -128,7 +128,11 @@ class landingservice with ChangeNotifier {
                               FontAwesomeIcons.trashAlt,
                               color: constantColors.redColor,
                             ),
-                            onPressed: () {},
+                            onPressed: () {
+                              Provider.of<firebaseopertrations>(context,
+                                      listen: false)
+                                  .deleteUserData(documentSnapshot['useruid']);
+                            },
                           ),
                         ],
                       ),
@@ -224,6 +228,8 @@ class landingservice with ChangeNotifier {
                                   .logIntoAccount(userEmailController.text,
                                       userPasswordController.text)
                                   .whenComplete(() {
+                                userEmailController.clear();
+                                userPasswordController.clear();
                                 Navigator.pushReplacement(
                                     context,
                                     PageTransition(
@@ -340,9 +346,9 @@ class landingservice with ChangeNotifier {
                             Provider.of<authentication>(context, listen: false)
                                 .createAccount(userEmailController.text,
                                     userPasswordController.text)
-                                .whenComplete(() {
+                                .whenComplete(() async {
                               print("Creating collection");
-                              Provider.of<firebaseopertrations>(context,
+                              await Provider.of<firebaseopertrations>(context,
                                       listen: false)
                                   .createUserCollection(context, {
                                 'useruid': Provider.of<authentication>(context,
@@ -356,6 +362,9 @@ class landingservice with ChangeNotifier {
                                     .getuserAvatarUrl
                               });
                             }).whenComplete(() {
+                              userPasswordController.clear();
+                              userNameController.clear();
+                              userEmailController.clear();
                               Navigator.pushReplacement(
                                   context,
                                   PageTransition(

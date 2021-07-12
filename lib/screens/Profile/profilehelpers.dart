@@ -6,6 +6,7 @@ import 'package:page_transition/page_transition.dart';
 import 'package:provider/provider.dart';
 import 'package:the_social/constants/Constantcolors.dart';
 import 'package:the_social/screens/landingpage/landingpage.dart';
+import 'package:the_social/screens/landingpage/landingutils.dart';
 import 'package:the_social/services/authentication.dart';
 
 class profilehelpers with ChangeNotifier {
@@ -31,7 +32,7 @@ class profilehelpers with ChangeNotifier {
                       radius: 55.0,
                       backgroundImage: NetworkImage(snapshot.data
                               .data()['userimage'] ??
-                          'https://www.solidbackgrounds.com/images/950x350/950x350-white-solid-color-background.jpg'),
+                          "https://www.solidbackgrounds.com/images/950x350/950x350-white-solid-color-background.jpg"),
                     ),
                   ),
                 ),
