@@ -85,6 +85,8 @@ class feedhelpers with ChangeNotifier {
       BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
     return ListView(
         children: snapshot.data.docs.map((DocumentSnapshot documentSnapshot) {
+      Provider.of<postfunctions>(context, listen: false)
+          .showTimeAgo(documentSnapshot['time']);
       return Container(
         height: MediaQuery.of(context).size.height * 0.63,
         width: MediaQuery.of(context).size.width,
@@ -128,7 +130,8 @@ class feedhelpers with ChangeNotifier {
                                     fontSize: 16.0),
                                 children: <TextSpan>[
                                   TextSpan(
-                                      text: ' , 12 hours ago',
+                                      text:
+                                          ' ,${Provider.of<postfunctions>(context, listen: false).getImageTimePosted.toString()}',
                                       style: TextStyle(
                                           color: constantColors.lightColor
                                               .withOpacity(0.8)))

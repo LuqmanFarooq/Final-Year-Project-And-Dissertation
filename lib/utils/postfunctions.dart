@@ -5,10 +5,23 @@ import 'package:provider/provider.dart';
 import 'package:the_social/constants/Constantcolors.dart';
 import 'package:the_social/services/authentication.dart';
 import 'package:the_social/services/firebaseoperations.dart';
+import 'package:timeago/timeago.dart' as timeago;
 
 class postfunctions with ChangeNotifier {
   TextEditingController commentContrller = TextEditingController();
   ConstantColors constantColors = ConstantColors();
+
+  String imageTimePosted;
+  String get getImageTimePosted => imageTimePosted;
+
+  showTimeAgo(dynamic timedata) {
+    Timestamp time = timedata;
+    DateTime dateTime = time.toDate();
+    imageTimePosted = timeago.format(dateTime);
+    print(imageTimePosted);
+    notifyListeners();
+  }
+
   Future addlike(BuildContext context, String postId, String subDocId) async {
     FirebaseFirestore.instance
         .collection('posts')
