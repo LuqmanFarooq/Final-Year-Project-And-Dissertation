@@ -14,7 +14,7 @@ class homepagehelpers with ChangeNotifier {
       currentIndex: index,
       bubbleCurve: Curves.bounceIn,
       scaleCurve: Curves.decelerate,
-      selectedColor: constantColors.blueColor,
+      selectedColor: constantColors.yellowColor,
       unSelectedColor: constantColors.whiteColor,
       strokeColor: constantColors.blueColor,
       scaleFactor: 0.5,

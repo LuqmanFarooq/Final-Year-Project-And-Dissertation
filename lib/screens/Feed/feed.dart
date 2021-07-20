@@ -8,7 +8,7 @@ class feed extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: constantColors.blueGreyColor,
+      backgroundColor: constantColors.whiteColor,
       drawer: Drawer(),
       appBar: Provider.of<feedhelpers>(context, listen: false).appBar(context),
       body: Provider.of<feedhelpers>(context, listen: false).feedBody(context),
