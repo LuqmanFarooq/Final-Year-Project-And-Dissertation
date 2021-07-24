@@ -33,12 +33,12 @@ class profile extends StatelessWidget {
                       .logutdialog(context);
                 })
           ],
-          backgroundColor: constantColors.blueGreyColor.withOpacity(0.4),
+          backgroundColor: constantColors.blackColor,
           title: RichText(
               text: TextSpan(
-                  text: "My ",
+                  text: "Your ",
                   style: TextStyle(
-                    color: constantColors.whiteColor,
+                    color: constantColors.blackColor,
                     fontWeight: FontWeight.bold,
                     fontSize: 20.0,
                   ),
@@ -46,7 +46,7 @@ class profile extends StatelessWidget {
                 TextSpan(
                   text: 'Profile',
                   style: TextStyle(
-                    color: constantColors.blueColor,
+                    color: constantColors.blackColor.withOpacity(0.4),
                     fontWeight: FontWeight.bold,
                     fontSize: 20.0,
                   ),

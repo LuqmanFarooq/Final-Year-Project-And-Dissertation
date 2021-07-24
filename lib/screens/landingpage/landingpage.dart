@@ -32,11 +32,11 @@ class landingpage extends StatelessWidget {
               begin: Alignment.topCenter,
               end: Alignment.bottomCenter,
               stops: [
-            0.5,
-            0.9
+            1.0,
+            1.0
           ],
               colors: [
-            constantColors.darkColor,
+            constantColors.whiteColor,
             constantColors.blueGreyColor,
           ])),
     );

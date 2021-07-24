@@ -30,7 +30,7 @@ class _splashscreenState extends State<splashscreen> {
       body: Center(
           child: RichText(
         text: TextSpan(
-            text: "the",
+            text: "City",
             style: TextStyle(
                 fontFamily: 'Poppins',
                 color: constantColors.whiteColor,
@@ -41,7 +41,7 @@ class _splashscreenState extends State<splashscreen> {
                 text: "Social",
                 style: TextStyle(
                     fontFamily: 'Poppins',
-                    color: constantColors.blueColor,
+                    color: constantColors.yellowColor,
                     fontWeight: FontWeight.bold,
                     fontSize: 34.0),
               )

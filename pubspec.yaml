@@ -51,7 +51,7 @@ flutter:
   # the material Icons class.
   uses-material-design: true
   assets:
-    - assets/images/login.png
+    - assets/images/login.jpg
     - assets/images/empty.png
     - assets/icons/sunflower.png
     - assets/animations/loading.json

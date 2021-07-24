@@ -40,14 +40,14 @@ class landingutls with ChangeNotifier {
                   padding: EdgeInsets.symmetric(horizontal: 150.0),
                   child: Divider(
                     thickness: 4.0,
-                    color: constantColors.whiteColor,
+                    color: constantColors.blackColor,
                   ),
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     MaterialButton(
-                        color: constantColors.blueColor,
+                        color: constantColors.blackColor,
                         child: Text(
                           'Gallery',
                           style: TextStyle(
@@ -64,7 +64,7 @@ class landingutls with ChangeNotifier {
                           });
                         }),
                     MaterialButton(
-                        color: constantColors.blueColor,
+                        color: constantColors.blackColor,
                         child: Text(
                           'Camera',
                           style: TextStyle(
@@ -87,7 +87,7 @@ class landingutls with ChangeNotifier {
             height: MediaQuery.of(context).size.height * 0.1,
             width: MediaQuery.of(context).size.width,
             decoration: BoxDecoration(
-                color: constantColors.blueGreyColor,
+                color: constantColors.yellowColor,
                 borderRadius: BorderRadius.circular(12.0)),
           );
         });

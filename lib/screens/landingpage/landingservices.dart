@@ -29,7 +29,7 @@ class landingservice with ChangeNotifier {
                   padding: EdgeInsets.symmetric(horizontal: 150.0),
                   child: Divider(
                     thickness: 4.0,
-                    color: constantColors.whiteColor,
+                    color: constantColors.blackColor,
                   ),
                 ),
                 Padding(
@@ -48,16 +48,16 @@ class landingservice with ChangeNotifier {
                       MaterialButton(
                           child: Text("Reselect",
                               style: TextStyle(
-                                  color: constantColors.whiteColor,
+                                  color: constantColors.blackColor,
                                   fontWeight: FontWeight.bold,
                                   decoration: TextDecoration.underline,
-                                  decorationColor: constantColors.whiteColor)),
+                                  decorationColor: constantColors.blackColor)),
                           onPressed: () {
                             Provider.of<landingutls>(context, listen: false)
                                 .pickuserAvatar(context, ImageSource.gallery);
                           }),
                       MaterialButton(
-                          color: constantColors.blueColor,
+                          color: constantColors.blackColor,
                           child: Text("Confirm Image",
                               style: TextStyle(
                                   color: constantColors.whiteColor,
@@ -76,7 +76,7 @@ class landingservice with ChangeNotifier {
               ],
             ),
             decoration: BoxDecoration(
-                color: constantColors.blueGreyColor,
+                color: constantColors.whiteColor,
                 borderRadius: BorderRadius.circular(15.0)),
           );
         });
@@ -107,7 +107,7 @@ class landingservice with ChangeNotifier {
                           IconButton(
                             icon: Icon(
                               FontAwesomeIcons.check,
-                              color: constantColors.blueColor,
+                              color: constantColors.blackColor,
                             ),
                             onPressed: () {
                               Provider.of<authentication>(context,
@@ -145,13 +145,13 @@ class landingservice with ChangeNotifier {
                       documentSnapshot['useremail'],
                       style: TextStyle(
                           fontWeight: FontWeight.bold,
-                          color: constantColors.whiteColor),
+                          color: constantColors.blackColor),
                     ),
                     title: Text(
                       documentSnapshot['username'],
                       style: TextStyle(
                           fontWeight: FontWeight.bold,
-                          color: constantColors.greenColor),
+                          color: constantColors.blackColor),
                     ),
                   );
                 }).toList(),
@@ -178,7 +178,7 @@ class landingservice with ChangeNotifier {
                       padding: EdgeInsets.symmetric(horizontal: 150.0),
                       child: Divider(
                         thickness: 4.0,
-                        color: constantColors.whiteColor,
+                        color: constantColors.blackColor,
                       ),
                     ),
                     Padding(
@@ -188,11 +188,11 @@ class landingservice with ChangeNotifier {
                         decoration: InputDecoration(
                             hintText: 'Enter Email...',
                             hintStyle: TextStyle(
-                                color: constantColors.whiteColor,
+                                color: constantColors.blackColor,
                                 fontSize: 16.0,
                                 fontWeight: FontWeight.bold)),
                         style: TextStyle(
-                            color: constantColors.whiteColor,
+                            color: constantColors.blackColor,
                             fontSize: 18.0,
                             fontWeight: FontWeight.bold),
                       ),
@@ -204,11 +204,11 @@ class landingservice with ChangeNotifier {
                         decoration: InputDecoration(
                             hintText: 'Enter Password...',
                             hintStyle: TextStyle(
-                                color: constantColors.whiteColor,
+                                color: constantColors.blackColor,
                                 fontSize: 16.0,
                                 fontWeight: FontWeight.bold)),
                         style: TextStyle(
-                            color: constantColors.whiteColor,
+                            color: constantColors.blackColor,
                             fontSize: 18.0,
                             fontWeight: FontWeight.bold),
                       ),
@@ -216,7 +216,7 @@ class landingservice with ChangeNotifier {
                     Padding(
                       padding: const EdgeInsets.only(top: 8.0),
                       child: FloatingActionButton(
-                          backgroundColor: constantColors.blueColor,
+                          backgroundColor: constantColors.blackColor,
                           child: Icon(
                             FontAwesomeIcons.check,
                             color: constantColors.whiteColor,
@@ -244,7 +244,7 @@ class landingservice with ChangeNotifier {
                   ],
                 ),
                 decoration: BoxDecoration(
-                    color: constantColors.blueGreyColor,
+                    color: constantColors.whiteColor,
                     borderRadius: BorderRadius.only(
                         topLeft: Radius.circular(12.0),
                         topRight: Radius.circular(12.0))),
@@ -265,7 +265,7 @@ class landingservice with ChangeNotifier {
               height: MediaQuery.of(context).size.height,
               width: MediaQuery.of(context).size.width,
               decoration: BoxDecoration(
-                  color: constantColors.blueGreyColor,
+                  color: constantColors.whiteColor,
                   borderRadius: BorderRadius.only(
                       topLeft: Radius.circular(12.0),
                       topRight: Radius.circular(12.0))),
@@ -275,7 +275,7 @@ class landingservice with ChangeNotifier {
                     padding: EdgeInsets.symmetric(horizontal: 150.0),
                     child: Divider(
                       thickness: 4.0,
-                      color: constantColors.whiteColor,
+                      color: constantColors.blackColor,
                     ),
                   ),
                   CircleAvatar(
@@ -292,11 +292,11 @@ class landingservice with ChangeNotifier {
                       decoration: InputDecoration(
                           hintText: 'Enter Name...',
                           hintStyle: TextStyle(
-                              color: constantColors.whiteColor,
+                              color: constantColors.blackColor,
                               fontSize: 16.0,
                               fontWeight: FontWeight.bold)),
                       style: TextStyle(
-                          color: constantColors.whiteColor,
+                          color: constantColors.blackColor,
                           fontSize: 18.0,
                           fontWeight: FontWeight.bold),
                     ),
@@ -308,11 +308,11 @@ class landingservice with ChangeNotifier {
                       decoration: InputDecoration(
                           hintText: 'Enter Email...',
                           hintStyle: TextStyle(
-                              color: constantColors.whiteColor,
+                              color: constantColors.blackColor,
                               fontSize: 16.0,
                               fontWeight: FontWeight.bold)),
                       style: TextStyle(
-                          color: constantColors.whiteColor,
+                          color: constantColors.blackColor,
                           fontSize: 18.0,
                           fontWeight: FontWeight.bold),
                     ),
@@ -324,11 +324,11 @@ class landingservice with ChangeNotifier {
                       decoration: InputDecoration(
                           hintText: 'Enter Password...',
                           hintStyle: TextStyle(
-                              color: constantColors.whiteColor,
+                              color: constantColors.blackColor,
                               fontSize: 16.0,
                               fontWeight: FontWeight.bold)),
                       style: TextStyle(
-                          color: constantColors.whiteColor,
+                          color: constantColors.blackColor,
                           fontSize: 18.0,
                           fontWeight: FontWeight.bold),
                     ),
