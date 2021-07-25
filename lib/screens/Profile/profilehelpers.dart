@@ -13,10 +13,10 @@ class profilehelpers with ChangeNotifier {
   ConstantColors constantColors = ConstantColors();
   Widget headerprofile(BuildContext context, dynamic snapshot) {
     return SizedBox(
-      height: MediaQuery.of(context).size.height * 0.26,
+      height: MediaQuery.of(context).size.height * 0.38,
       width: MediaQuery.of(context).size.width,
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      child: Column(
+        //mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           Container(
             height: 200.0,
@@ -40,7 +40,7 @@ class profilehelpers with ChangeNotifier {
                     padding: EdgeInsets.only(top: 8.0),
                     child: Text(snapshot.data.data()['username'],
                         style: TextStyle(
-                            color: constantColors.whiteColor,
+                            color: constantColors.blackColor,
                             fontWeight: FontWeight.bold,
                             fontSize: 20.0))),
                 Padding(
@@ -50,14 +50,14 @@ class profilehelpers with ChangeNotifier {
                       children: [
                         Icon(
                           EvaIcons.email,
-                          color: constantColors.greenColor,
+                          color: constantColors.blackColor,
                           size: 16,
                         ),
                         Padding(
                           padding: const EdgeInsets.only(left: 8.0),
                           child: Text(snapshot.data.data()['useremail'],
                               style: TextStyle(
-                                  color: constantColors.whiteColor,
+                                  color: constantColors.blackColor,
                                   fontWeight: FontWeight.bold,
                                   fontSize: 12.0)),
                         ),
@@ -67,7 +67,7 @@ class profilehelpers with ChangeNotifier {
             ),
           ),
           Container(
-            width: 200.0,
+            width: MediaQuery.of(context).size.width,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
@@ -117,32 +117,29 @@ class profilehelpers with ChangeNotifier {
                         ],
                       ),
                     ),
+                    Container(
+                      decoration: BoxDecoration(
+                          color: constantColors.darkColor,
+                          borderRadius: BorderRadius.circular(15.0)),
+                      height: 70.0,
+                      width: 80.0,
+                      child: Column(
+                        children: [
+                          Text('0',
+                              style: TextStyle(
+                                  color: constantColors.whiteColor,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 28.0)),
+                          Text('Posts',
+                              style: TextStyle(
+                                  color: constantColors.whiteColor,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 12.0)),
+                        ],
+                      ),
+                    ),
                   ],
                 ),
-                Padding(
-                  padding: const EdgeInsets.only(top: 8.0),
-                  child: Container(
-                    decoration: BoxDecoration(
-                        color: constantColors.darkColor,
-                        borderRadius: BorderRadius.circular(15.0)),
-                    height: 70.0,
-                    width: 80.0,
-                    child: Column(
-                      children: [
-                        Text('0',
-                            style: TextStyle(
-                                color: constantColors.whiteColor,
-                                fontWeight: FontWeight.bold,
-                                fontSize: 28.0)),
-                        Text('Posts',
-                            style: TextStyle(
-                                color: constantColors.whiteColor,
-                                fontWeight: FontWeight.bold,
-                                fontSize: 12.0)),
-                      ],
-                    ),
-                  ),
-                )
               ],
             ),
           ),
@@ -156,9 +153,7 @@ class profilehelpers with ChangeNotifier {
       child: SizedBox(
         height: 25.0,
         width: 350.0,
-        child: Divider(
-          color: constantColors.whiteColor,
-        ),
+        child: Divider(color: constantColors.blackColor),
       ),
     );
   }
@@ -177,8 +172,8 @@ class profilehelpers with ChangeNotifier {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 Icon(
-                  FontAwesomeIcons.userAstronaut,
-                  color: constantColors.yellowColor,
+                  FontAwesomeIcons.angleDoubleDown,
+                  color: constantColors.blackColor,
                   size: 16.0,
                 ),
                 Text(
@@ -186,7 +181,7 @@ class profilehelpers with ChangeNotifier {
                   style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 16.0,
-                      color: constantColors.whiteColor),
+                      color: constantColors.blackColor),
                 )
               ],
             ),
@@ -212,7 +207,7 @@ class profilehelpers with ChangeNotifier {
       padding: const EdgeInsets.all(8.0),
       child: Container(
           child: Image.asset("assets/images/empty.png"),
-          height: MediaQuery.of(context).size.height * 0.5,
+          height: MediaQuery.of(context).size.height * 0.39,
           width: MediaQuery.of(context).size.width,
           decoration: BoxDecoration(
               color: constantColors.darkColor.withOpacity(0.4),

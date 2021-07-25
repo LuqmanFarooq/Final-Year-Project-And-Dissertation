@@ -19,14 +19,14 @@ class profile extends StatelessWidget {
           leading: IconButton(
               icon: Icon(
                 EvaIcons.settings2Outline,
-                color: constantColors.lightBlueColor,
+                color: constantColors.whiteColor,
               ),
               onPressed: () {}),
           actions: [
             IconButton(
                 icon: Icon(
                   EvaIcons.logInOutline,
-                  color: constantColors.greenColor,
+                  color: constantColors.whiteColor,
                 ),
                 onPressed: () {
                   Provider.of<profilehelpers>(context, listen: false)
@@ -38,7 +38,7 @@ class profile extends StatelessWidget {
               text: TextSpan(
                   text: "Your ",
                   style: TextStyle(
-                    color: constantColors.blackColor,
+                    color: constantColors.whiteColor,
                     fontWeight: FontWeight.bold,
                     fontSize: 20.0,
                   ),
@@ -46,7 +46,7 @@ class profile extends StatelessWidget {
                 TextSpan(
                   text: 'Profile',
                   style: TextStyle(
-                    color: constantColors.blackColor.withOpacity(0.4),
+                    color: constantColors.yellowColor,
                     fontWeight: FontWeight.bold,
                     fontSize: 20.0,
                   ),
@@ -84,7 +84,7 @@ class profile extends StatelessWidget {
                 }),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(15.0),
-              color: constantColors.blueGreyColor.withOpacity(0.6),
+              color: constantColors.yellowColor,
             ),
           ),
         )));
