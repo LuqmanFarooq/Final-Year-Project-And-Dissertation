@@ -73,7 +73,7 @@ class feedhelpers with ChangeNotifier {
             height: MediaQuery.of(context).size.height,
             width: MediaQuery.of(context).size.width,
             decoration: BoxDecoration(
-                color: constantColors.whiteColor,
+                color: constantColors.greyColor.withOpacity(0.1),
                 borderRadius: BorderRadius.only(
                     topRight: Radius.circular(16.0),
                     topLeft: Radius.circular(16.0)))),
@@ -283,7 +283,7 @@ class feedhelpers with ChangeNotifier {
                         ? IconButton(
                             icon: Icon(
                               EvaIcons.moreVertical,
-                              color: constantColors.whiteColor,
+                              color: constantColors.blackColor,
                             ),
                             onPressed: () {})
                         : Container(

@@ -78,20 +78,21 @@ class postfunctions with ChangeNotifier {
                     padding: const EdgeInsets.symmetric(horizontal: 150.0),
                     child: Divider(
                       thickness: 4.0,
-                      color: constantColors.whiteColor,
+                      color: constantColors.blackColor,
                     ),
                   ),
                   Container(
                     width: 100.0,
                     decoration: BoxDecoration(
-                      border: Border.all(color: constantColors.whiteColor),
+                      color: Colors.black,
+                      border: Border.all(color: constantColors.blackColor),
                       borderRadius: BorderRadius.circular(5.0),
                     ),
                     child: Center(
                       child: Text(
                         "Comments",
                         style: TextStyle(
-                            color: constantColors.blueColor,
+                            color: constantColors.whiteColor,
                             fontSize: 16.0,
                             fontWeight: FontWeight.bold),
                       ),
@@ -150,7 +151,7 @@ class postfunctions with ChangeNotifier {
                                                 documentSnapshot['username'],
                                                 style: TextStyle(
                                                   color:
-                                                      constantColors.whiteColor,
+                                                      constantColors.blackColor,
                                                   fontWeight: FontWeight.bold,
                                                   fontSize: 14.0,
                                                 ),
@@ -165,14 +166,14 @@ class postfunctions with ChangeNotifier {
                                                     icon: Icon(
                                                       FontAwesomeIcons.arrowUp,
                                                       color: constantColors
-                                                          .blueColor,
+                                                          .blackColor,
                                                       size: 12.0,
                                                     )),
                                                 Text(
                                                   '0',
                                                   style: TextStyle(
                                                       color: constantColors
-                                                          .whiteColor,
+                                                          .blackColor,
                                                       fontSize: 14.0,
                                                       fontWeight:
                                                           FontWeight.bold),
@@ -182,7 +183,7 @@ class postfunctions with ChangeNotifier {
                                                     icon: Icon(
                                                       FontAwesomeIcons.reply,
                                                       color: constantColors
-                                                          .yellowColor,
+                                                          .blackColor,
                                                       size: 12.0,
                                                     )),
                                               ],
@@ -202,7 +203,7 @@ class postfunctions with ChangeNotifier {
                                                   Icons
                                                       .arrow_forward_ios_outlined,
                                                   color:
-                                                      constantColors.blueColor,
+                                                      constantColors.blackColor,
                                                   size: 12.0,
                                                 )),
                                             Container(
@@ -214,7 +215,7 @@ class postfunctions with ChangeNotifier {
                                                 documentSnapshot['comment'],
                                                 style: TextStyle(
                                                     color: constantColors
-                                                        .whiteColor,
+                                                        .blackColor,
                                                     fontSize: 16.0),
                                               ),
                                             ),
@@ -223,7 +224,7 @@ class postfunctions with ChangeNotifier {
                                                 icon: Icon(
                                                   FontAwesomeIcons.trash,
                                                   color:
-                                                      constantColors.redColor,
+                                                      constantColors.blackColor,
                                                   size: 16.0,
                                                 )),
                                           ],
@@ -254,12 +255,12 @@ class postfunctions with ChangeNotifier {
                             decoration: InputDecoration(
                                 hintText: 'Add Comment...',
                                 hintStyle: TextStyle(
-                                    color: constantColors.whiteColor,
+                                    color: constantColors.blackColor,
                                     fontSize: 16,
                                     fontWeight: FontWeight.bold)),
                             controller: commentContrller,
                             style: TextStyle(
-                                color: constantColors.whiteColor,
+                                color: constantColors.blackColor,
                                 fontSize: 16.0,
                                 fontWeight: FontWeight.bold),
                           ),
@@ -274,7 +275,7 @@ class postfunctions with ChangeNotifier {
                               notifyListeners();
                             });
                           },
-                          backgroundColor: constantColors.greenColor,
+                          backgroundColor: constantColors.blackColor,
                           child: Icon(FontAwesomeIcons.comment,
                               color: constantColors.whiteColor),
                         )
@@ -284,7 +285,7 @@ class postfunctions with ChangeNotifier {
                 ],
               ),
               decoration: BoxDecoration(
-                  color: constantColors.blueGreyColor,
+                  color: constantColors.yellowColor,
                   borderRadius: BorderRadius.only(
                       topLeft: Radius.circular(12.0),
                       topRight: Radius.circular(12.0))),
@@ -304,20 +305,21 @@ class postfunctions with ChangeNotifier {
                   padding: const EdgeInsets.symmetric(horizontal: 150.0),
                   child: Divider(
                     thickness: 4.0,
-                    color: constantColors.whiteColor,
+                    color: constantColors.blackColor,
                   ),
                 ),
                 Container(
                   width: 100.0,
                   decoration: BoxDecoration(
-                    border: Border.all(color: constantColors.whiteColor),
+                    color: Colors.black,
+                    border: Border.all(color: constantColors.blackColor),
                     borderRadius: BorderRadius.circular(5.0),
                   ),
                   child: Center(
                     child: Text(
                       "Likes",
                       style: TextStyle(
-                          color: constantColors.blueColor,
+                          color: constantColors.whiteColor,
                           fontSize: 16.0,
                           fontWeight: FontWeight.bold),
                     ),
@@ -352,14 +354,14 @@ class postfunctions with ChangeNotifier {
                               title: Text(
                                 documentSnapshot['username'],
                                 style: TextStyle(
-                                    color: constantColors.blueColor,
+                                    color: constantColors.blackColor,
                                     fontSize: 16.0,
                                     fontWeight: FontWeight.bold),
                               ),
                               subtitle: Text(
                                 documentSnapshot['useremail'],
                                 style: TextStyle(
-                                    color: constantColors.whiteColor,
+                                    color: constantColors.blackColor,
                                     fontSize: 12.0,
                                     fontWeight: FontWeight.bold),
                               ),
@@ -392,7 +394,7 @@ class postfunctions with ChangeNotifier {
             height: MediaQuery.of(context).size.height * 0.50,
             width: MediaQuery.of(context).size.width,
             decoration: BoxDecoration(
-                color: constantColors.blueGreyColor,
+                color: constantColors.yellowColor,
                 borderRadius: BorderRadius.only(
                     topLeft: Radius.circular(12.0),
                     topRight: Radius.circular(12.0))),
