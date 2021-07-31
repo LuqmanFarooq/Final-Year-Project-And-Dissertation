@@ -59,7 +59,7 @@ class uploadpost with ChangeNotifier {
             height: MediaQuery.of(context).size.height * 0.1,
             width: MediaQuery.of(context).size.width,
             decoration: BoxDecoration(
-                color: constantColors.blueGreyColor,
+                color: constantColors.yellowColor,
                 borderRadius: BorderRadius.circular(11)),
             child: Column(
               children: [
@@ -77,7 +77,7 @@ class uploadpost with ChangeNotifier {
                       onPressed: () {
                         pickuserPostImage(context, ImageSource.gallery);
                       },
-                      color: constantColors.blueColor,
+                      color: constantColors.blackColor,
                       child: Text(
                         "Gallery",
                         style: TextStyle(
@@ -90,7 +90,7 @@ class uploadpost with ChangeNotifier {
                       onPressed: () {
                         pickuserPostImage(context, ImageSource.camera);
                       },
-                      color: constantColors.blueColor,
+                      color: constantColors.blackColor,
                       child: Text(
                         "Camera",
                         style: TextStyle(
@@ -115,7 +115,7 @@ class uploadpost with ChangeNotifier {
             height: MediaQuery.of(context).size.height * 0.39,
             width: MediaQuery.of(context).size.width,
             decoration: BoxDecoration(
-                color: constantColors.darkColor,
+                color: constantColors.yellowColor,
                 borderRadius: BorderRadius.circular(12)),
             child: Column(
               children: [
@@ -123,7 +123,7 @@ class uploadpost with ChangeNotifier {
                   padding: const EdgeInsets.symmetric(horizontal: 150.0),
                   child: Divider(
                     thickness: 4.0,
-                    color: constantColors.whiteColor,
+                    color: constantColors.blackColor,
                   ),
                 ),
                 Padding(
@@ -146,15 +146,15 @@ class uploadpost with ChangeNotifier {
                       MaterialButton(
                           child: Text("Reselect",
                               style: TextStyle(
-                                  color: constantColors.whiteColor,
+                                  color: constantColors.blackColor,
                                   fontWeight: FontWeight.bold,
                                   decoration: TextDecoration.underline,
-                                  decorationColor: constantColors.whiteColor)),
+                                  decorationColor: constantColors.blackColor)),
                           onPressed: () {
                             selectpostImageType(context);
                           }),
                       MaterialButton(
-                          color: constantColors.blueColor,
+                          color: constantColors.blackColor,
                           child: Text("Confirm Image",
                               style: TextStyle(
                                   color: constantColors.whiteColor,
@@ -186,7 +186,7 @@ class uploadpost with ChangeNotifier {
                   padding: const EdgeInsets.symmetric(horizontal: 150.0),
                   child: Divider(
                     thickness: 4.0,
-                    color: constantColors.whiteColor,
+                    color: constantColors.blackColor,
                   ),
                 ),
                 Container(
@@ -198,13 +198,13 @@ class uploadpost with ChangeNotifier {
                             IconButton(
                                 icon: Icon(
                                   Icons.image_aspect_ratio,
-                                  color: constantColors.greenColor,
+                                  color: constantColors.blackColor,
                                 ),
                                 onPressed: () {}),
                             IconButton(
                                 icon: Icon(
                                   Icons.fit_screen,
-                                  color: constantColors.yellowColor,
+                                  color: constantColors.blackColor,
                                 ),
                                 onPressed: () {}),
                           ],
@@ -228,12 +228,15 @@ class uploadpost with ChangeNotifier {
                       SizedBox(
                         height: 30.0,
                         width: 30.0,
-                        child: Image.asset('assets/icons/sunflower.png'),
+                        child: Icon(
+                          Icons.comment,
+                          color: Colors.black,
+                        ),
                       ),
                       Container(
                         height: 110.0,
                         width: 5.0,
-                        color: constantColors.blueColor,
+                        color: constantColors.blackColor,
                       ),
                       Padding(
                         padding: const EdgeInsets.only(left: 8.0),
@@ -250,13 +253,13 @@ class uploadpost with ChangeNotifier {
                             maxLength: 100,
                             controller: captionController,
                             style: TextStyle(
-                                color: constantColors.whiteColor,
+                                color: constantColors.blackColor,
                                 fontSize: 16.0,
                                 fontWeight: FontWeight.bold),
                             decoration: InputDecoration(
                               hintText: "Add a caption..",
                               hintStyle: TextStyle(
-                                  color: constantColors.whiteColor,
+                                  color: constantColors.blackColor,
                                   fontSize: 14.0,
                                   fontWeight: FontWeight.bold),
                             ),
@@ -297,14 +300,14 @@ class uploadpost with ChangeNotifier {
                       Navigator.pop(context);
                     });
                   },
-                  color: constantColors.blueColor,
+                  color: constantColors.blackColor,
                 )
               ],
             ),
             height: MediaQuery.of(context).size.height * 0.75,
             width: MediaQuery.of(context).size.width,
             decoration: BoxDecoration(
-                color: constantColors.blueGreyColor,
+                color: constantColors.yellowColor,
                 borderRadius: BorderRadius.circular(12.0)),
           );
         });
