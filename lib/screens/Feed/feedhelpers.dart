@@ -285,7 +285,10 @@ class feedhelpers with ChangeNotifier {
                               EvaIcons.moreVertical,
                               color: constantColors.blackColor,
                             ),
-                            onPressed: () {})
+                            onPressed: () {
+                              Provider.of<postfunctions>(context, listen: false)
+                                  .showPostOptions(context);
+                            })
                         : Container(
                             width: 0,
                             height: 0,

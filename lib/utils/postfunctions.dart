@@ -27,7 +27,7 @@ class postfunctions with ChangeNotifier {
         context: context,
         builder: (context) {
           return Container(
-            height: MediaQuery.of(context).size.height * 0.2,
+            height: MediaQuery.of(context).size.height * 0.1,
             width: MediaQuery.of(context).size.width,
             child: Column(
               children: [
@@ -40,6 +40,7 @@ class postfunctions with ChangeNotifier {
                 ),
                 Container(
                   child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
                       MaterialButton(
                           color: constantColors.blackColor,
@@ -49,8 +50,8 @@ class postfunctions with ChangeNotifier {
                                   fontWeight: FontWeight.bold,
                                   fontSize: 16.0)),
                           onPressed: () {}),
-                                                MaterialButton(
-                          color: constantColors.blackColor,
+                      MaterialButton(
+                          color: constantColors.redColor,
                           child: Text("Delete Post",
                               style: TextStyle(
                                   color: constantColors.whiteColor,
