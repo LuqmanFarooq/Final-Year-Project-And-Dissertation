@@ -22,6 +22,55 @@ class postfunctions with ChangeNotifier {
     notifyListeners();
   }
 
+  showPostOptions(BuildContext context) {
+    return showModalBottomSheet(
+        context: context,
+        builder: (context) {
+          return Container(
+            height: MediaQuery.of(context).size.height * 0.2,
+            width: MediaQuery.of(context).size.width,
+            child: Column(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 150.0),
+                  child: Divider(
+                    thickness: 4.0,
+                    color: constantColors.blackColor,
+                  ),
+                ),
+                Container(
+                  child: Row(
+                    children: [
+                      MaterialButton(
+                          color: constantColors.blackColor,
+                          child: Text("Edit Caption",
+                              style: TextStyle(
+                                  color: constantColors.whiteColor,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 16.0)),
+                          onPressed: () {}),
+                                                MaterialButton(
+                          color: constantColors.blackColor,
+                          child: Text("Delete Post",
+                              style: TextStyle(
+                                  color: constantColors.whiteColor,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 16.0)),
+                          onPressed: () {}),
+                    ],
+                  ),
+                )
+              ],
+            ),
+            decoration: BoxDecoration(
+                color: Colors.yellow,
+                borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(12.0),
+                    topRight: Radius.circular(12.0))),
+          );
+        });
+  }
+
   Future addlike(BuildContext context, String postId, String subDocId) async {
     FirebaseFirestore.instance
         .collection('posts')
