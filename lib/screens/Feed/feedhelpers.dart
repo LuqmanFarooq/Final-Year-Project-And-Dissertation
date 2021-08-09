@@ -83,223 +83,233 @@ class feedhelpers with ChangeNotifier {
 
   Widget loadposts(
       BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
-    return ListView(
-        children: snapshot.data.docs.map((DocumentSnapshot documentSnapshot) {
-      Provider.of<postfunctions>(context, listen: false)
-          .showTimeAgo(documentSnapshot['time']);
-      return Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Container(
-          decoration: BoxDecoration(
-              color: constantColors.yellowColor.withOpacity(0.8),
-              borderRadius: BorderRadius.all(Radius.circular(16.0))),
-          height: MediaQuery.of(context).size.height * 0.63,
-          width: MediaQuery.of(context).size.width,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Padding(
-                padding: const EdgeInsets.only(top: 8.0, left: 8.0),
-                child: Row(
-                  children: [
-                    GestureDetector(
-                      child: CircleAvatar(
-                        backgroundColor: constantColors.blueGreyColor,
-                        radius: 20.0,
-                        backgroundImage:
-                            NetworkImage(documentSnapshot['userimage']),
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 150.0),
+      child: ListView(
+          children: snapshot.data.docs.map((DocumentSnapshot documentSnapshot) {
+        Provider.of<postfunctions>(context, listen: false)
+            .showTimeAgo(documentSnapshot['time']);
+        return Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Container(
+            decoration: BoxDecoration(
+                color: constantColors.yellowColor.withOpacity(0.8),
+                borderRadius: BorderRadius.all(Radius.circular(16.0))),
+            height: MediaQuery.of(context).size.height * 0.63,
+            width: MediaQuery.of(context).size.width,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(top: 8.0, left: 8.0),
+                  child: Row(
+                    children: [
+                      GestureDetector(
+                        child: CircleAvatar(
+                          backgroundColor: constantColors.blueGreyColor,
+                          radius: 20.0,
+                          backgroundImage:
+                              NetworkImage(documentSnapshot['userimage']),
+                        ),
                       ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 8.0),
-                      child: Container(
-                        height: 50.0,
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Container(
-                                child: Text(documentSnapshot['caption'],
+                      Padding(
+                        padding: const EdgeInsets.only(left: 8.0),
+                        child: Container(
+                          height: 50.0,
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Container(
+                                  child: Text(documentSnapshot['caption'],
+                                      style: TextStyle(
+                                          color: constantColors.blackColor,
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 16.0))),
+                              Container(
+                                  child: RichText(
+                                text: TextSpan(
+                                    text: documentSnapshot['useremail'],
                                     style: TextStyle(
                                         color: constantColors.blackColor,
                                         fontWeight: FontWeight.bold,
-                                        fontSize: 16.0))),
-                            Container(
-                                child: RichText(
-                              text: TextSpan(
-                                  text: documentSnapshot['useremail'],
-                                  style: TextStyle(
-                                      color: constantColors.blackColor,
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 16.0),
-                                  children: <TextSpan>[
-                                    TextSpan(
-                                        text:
-                                            ' , ${Provider.of<postfunctions>(context, listen: false).getImageTimePosted.toString()}',
-                                        style: TextStyle(
-                                            color: constantColors.blackColor
-                                                .withOpacity(0.8)))
-                                  ]),
-                            ))
-                          ],
+                                        fontSize: 16.0),
+                                    children: <TextSpan>[
+                                      TextSpan(
+                                          text:
+                                              ' , ${Provider.of<postfunctions>(context, listen: false).getImageTimePosted.toString()}',
+                                          style: TextStyle(
+                                              color: constantColors.blackColor
+                                                  .withOpacity(0.8)))
+                                    ]),
+                              ))
+                            ],
+                          ),
                         ),
                       ),
-                    ),
-                    // Container(
-                    //   height: MediaQuery.of(context).size.height,
-                    //   child: Column(
-                    //     mainAxisAlignment: MainAxisAlignment.start,
-                    //     crossAxisAlignment: CrossAxisAlignment.start,
-                    //     children: [],
-                    //   ),
-                    // ),
-                  ],
+                      // Container(
+                      //   height: MediaQuery.of(context).size.height,
+                      //   child: Column(
+                      //     mainAxisAlignment: MainAxisAlignment.start,
+                      //     crossAxisAlignment: CrossAxisAlignment.start,
+                      //     children: [],
+                      //   ),
+                      // ),
+                    ],
+                  ),
                 ),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(top: 8.0),
-                child: Container(
-                  height: MediaQuery.of(context).size.height * 0.46,
-                  width: MediaQuery.of(context).size.width,
-                  child: FittedBox(
-                    child: Image.network(
-                      documentSnapshot['postimage'],
-                      scale: 2,
+                Padding(
+                  padding: const EdgeInsets.only(top: 8.0),
+                  child: Container(
+                    height: MediaQuery.of(context).size.height * 0.46,
+                    width: MediaQuery.of(context).size.width,
+                    child: FittedBox(
+                      child: Image.network(
+                        documentSnapshot['postimage'],
+                        scale: 2,
+                      ),
                     ),
                   ),
                 ),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(top: 8.0, left: 10.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    Container(
-                      width: 80.0,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          GestureDetector(
-                            onLongPress: () {
-                              Provider.of<postfunctions>(context, listen: false)
-                                  .showlikes(
-                                      context, documentSnapshot['caption']);
-                            },
-                            onTap: () {
-                              Provider.of<postfunctions>(context, listen: false)
-                                  .addlike(
-                                      context,
+                Padding(
+                  padding: const EdgeInsets.only(top: 8.0, left: 10.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Container(
+                        width: 80.0,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            GestureDetector(
+                              onLongPress: () {
+                                Provider.of<postfunctions>(context,
+                                        listen: false)
+                                    .showlikes(
+                                        context, documentSnapshot['caption']);
+                              },
+                              onTap: () {
+                                Provider.of<postfunctions>(context,
+                                        listen: false)
+                                    .addlike(
+                                        context,
+                                        documentSnapshot['caption'],
+                                        Provider.of<authentication>(context,
+                                                listen: false)
+                                            .getUserid);
+                              },
+                              child: Icon(
+                                FontAwesomeIcons.solidHeart,
+                                color: constantColors.redColor,
+                                size: 22.0,
+                              ),
+                            ),
+                            StreamBuilder<QuerySnapshot>(
+                                stream: FirebaseFirestore.instance
+                                    .collection('posts')
+                                    .doc(
                                       documentSnapshot['caption'],
-                                      Provider.of<authentication>(context,
-                                              listen: false)
-                                          .getUserid);
-                            },
-                            child: Icon(
-                              FontAwesomeIcons.solidHeart,
-                              color: constantColors.redColor,
-                              size: 22.0,
-                            ),
-                          ),
-                          StreamBuilder<QuerySnapshot>(
-                              stream: FirebaseFirestore.instance
-                                  .collection('posts')
-                                  .doc(
-                                    documentSnapshot['caption'],
-                                  )
-                                  .collection('likes')
-                                  .snapshots(),
-                              builder: (context, snapshot) {
-                                if (snapshot.connectionState ==
-                                    ConnectionState.waiting) {
-                                  return Center(
-                                    child: CircularProgressIndicator(),
-                                  );
-                                } else {
-                                  return Padding(
-                                    padding: const EdgeInsets.only(left: 8.0),
-                                    child: Text(
-                                        snapshot.data.docs.length.toString(),
-                                        style: TextStyle(
-                                            color: constantColors.blackColor,
-                                            fontWeight: FontWeight.bold,
-                                            fontSize: 18.0)),
-                                  );
-                                }
-                              })
-                        ],
+                                    )
+                                    .collection('likes')
+                                    .snapshots(),
+                                builder: (context, snapshot) {
+                                  if (snapshot.connectionState ==
+                                      ConnectionState.waiting) {
+                                    return Center(
+                                      child: CircularProgressIndicator(),
+                                    );
+                                  } else {
+                                    return Padding(
+                                      padding: const EdgeInsets.only(left: 8.0),
+                                      child: Text(
+                                          snapshot.data.docs.length.toString(),
+                                          style: TextStyle(
+                                              color: constantColors.blackColor,
+                                              fontWeight: FontWeight.bold,
+                                              fontSize: 18.0)),
+                                    );
+                                  }
+                                })
+                          ],
+                        ),
                       ),
-                    ),
-                    Container(
-                      width: 80.0,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          GestureDetector(
-                            onTap: () {
-                              Provider.of<postfunctions>(context, listen: false)
-                                  .showCommentsSheet(context, documentSnapshot,
-                                      documentSnapshot['caption']);
-                            },
-                            child: Icon(
-                              FontAwesomeIcons.solidComment,
-                              color: constantColors.blueColor,
-                              size: 22.0,
+                      Container(
+                        width: 80.0,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            GestureDetector(
+                              onTap: () {
+                                Provider.of<postfunctions>(context,
+                                        listen: false)
+                                    .showCommentsSheet(
+                                        context,
+                                        documentSnapshot,
+                                        documentSnapshot['caption']);
+                              },
+                              child: Icon(
+                                FontAwesomeIcons.solidComment,
+                                color: constantColors.blueColor,
+                                size: 22.0,
+                              ),
                             ),
-                          ),
-                          StreamBuilder<QuerySnapshot>(
-                              stream: FirebaseFirestore.instance
-                                  .collection('posts')
-                                  .doc(
-                                    documentSnapshot['caption'],
-                                  )
-                                  .collection('comments')
-                                  .snapshots(),
-                              builder: (context, snapshot) {
-                                if (snapshot.connectionState ==
-                                    ConnectionState.waiting) {
-                                  return Center(
-                                    child: CircularProgressIndicator(),
-                                  );
-                                } else {
-                                  return Padding(
-                                    padding: const EdgeInsets.only(left: 8.0),
-                                    child: Text(
-                                        snapshot.data.docs.length.toString(),
-                                        style: TextStyle(
-                                            color: constantColors.blackColor,
-                                            fontWeight: FontWeight.bold,
-                                            fontSize: 18.0)),
-                                  );
-                                }
-                              })
-                        ],
+                            StreamBuilder<QuerySnapshot>(
+                                stream: FirebaseFirestore.instance
+                                    .collection('posts')
+                                    .doc(
+                                      documentSnapshot['caption'],
+                                    )
+                                    .collection('comments')
+                                    .snapshots(),
+                                builder: (context, snapshot) {
+                                  if (snapshot.connectionState ==
+                                      ConnectionState.waiting) {
+                                    return Center(
+                                      child: CircularProgressIndicator(),
+                                    );
+                                  } else {
+                                    return Padding(
+                                      padding: const EdgeInsets.only(left: 8.0),
+                                      child: Text(
+                                          snapshot.data.docs.length.toString(),
+                                          style: TextStyle(
+                                              color: constantColors.blackColor,
+                                              fontWeight: FontWeight.bold,
+                                              fontSize: 18.0)),
+                                    );
+                                  }
+                                })
+                          ],
+                        ),
                       ),
-                    ),
-                    Spacer(),
-                    Provider.of<authentication>(context, listen: false)
-                                .getUserid ==
-                            documentSnapshot['useruid']
-                        ? IconButton(
-                            icon: Icon(
-                              EvaIcons.moreVertical,
-                              color: constantColors.blackColor,
-                            ),
-                            onPressed: () {
-                              Provider.of<postfunctions>(context, listen: false)
-                                  .showPostOptions(context);
-                            })
-                        : Container(
-                            width: 0,
-                            height: 0,
-                          )
-                  ],
+                      Spacer(),
+                      Provider.of<authentication>(context, listen: false)
+                                  .getUserid ==
+                              documentSnapshot['useruid']
+                          ? IconButton(
+                              icon: Icon(
+                                EvaIcons.moreVertical,
+                                color: constantColors.blackColor,
+                              ),
+                              onPressed: () {
+                                Provider.of<postfunctions>(context,
+                                        listen: false)
+                                    .showPostOptions(
+                                        context, documentSnapshot['caption']);
+                              })
+                          : Container(
+                              width: 0,
+                              height: 0,
+                            )
+                    ],
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
-        ),
-      );
-    }).toList());
+        );
+      }).toList()),
+    );
   }
 }

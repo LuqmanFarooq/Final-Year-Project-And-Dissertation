@@ -10,6 +10,7 @@ import 'package:timeago/timeago.dart' as timeago;
 class postfunctions with ChangeNotifier {
   TextEditingController commentContrller = TextEditingController();
   ConstantColors constantColors = ConstantColors();
+  TextEditingController updatedCaptionController = TextEditingController();
 
   String imageTimePosted;
   String get getImageTimePosted => imageTimePosted;
@@ -22,8 +23,9 @@ class postfunctions with ChangeNotifier {
     notifyListeners();
   }
 
-  showPostOptions(BuildContext context) {
+  showPostOptions(BuildContext context, String postId) {
     return showModalBottomSheet(
+        isScrollControlled: true,
         context: context,
         builder: (context) {
           return Container(
@@ -49,7 +51,68 @@ class postfunctions with ChangeNotifier {
                                   color: constantColors.whiteColor,
                                   fontWeight: FontWeight.bold,
                                   fontSize: 16.0)),
-                          onPressed: () {}),
+                          onPressed: () {
+                            showModalBottomSheet(
+                                context: context,
+                                builder: (context) {
+                                  return Container(
+                                    child: Center(
+                                      child: Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceEvenly,
+                                        children: [
+                                          Container(
+                                            color: Colors.yellow,
+                                            width: 300.0,
+                                            height: 50.0,
+                                            child: TextField(
+                                              decoration: InputDecoration(
+                                                  hintText: "Add New Caption",
+                                                  hintStyle: TextStyle(
+                                                      color: constantColors
+                                                          .blackColor,
+                                                      fontWeight:
+                                                          FontWeight.bold,
+                                                      fontSize: 16)),
+                                              style: TextStyle(
+                                                  color:
+                                                      constantColors.blackColor,
+                                                  fontWeight: FontWeight.bold,
+                                                  fontSize: 16),
+                                              controller:
+                                                  updatedCaptionController,
+                                            ),
+                                          ),
+                                          FloatingActionButton(
+                                            onPressed: () {
+                                              Provider.of<firebaseopertrations>(
+                                                      context,
+                                                      listen: false)
+                                                  .updateCaption(
+                                                      updatedCaptionController
+                                                          .text,
+                                                      {
+                                                    'caption':
+                                                        updatedCaptionController
+                                                            .text
+                                                  }).whenComplete(() {
+                                                updatedCaptionController
+                                                    .clear();
+                                                Navigator.pop(context);
+                                              });
+                                            },
+                                            backgroundColor: Colors.black,
+                                            child: Icon(
+                                              FontAwesomeIcons.fileUpload,
+                                              color: Colors.white,
+                                            ),
+                                          )
+                                        ],
+                                      ),
+                                    ),
+                                  );
+                                });
+                          }),
                       MaterialButton(
                           color: constantColors.redColor,
                           child: Text("Delete Post",
@@ -57,7 +120,52 @@ class postfunctions with ChangeNotifier {
                                   color: constantColors.whiteColor,
                                   fontWeight: FontWeight.bold,
                                   fontSize: 16.0)),
-                          onPressed: () {}),
+                          onPressed: () {
+                            showDialog(
+                                context: context,
+                                builder: (context) {
+                                  return AlertDialog(
+                                    title: Text("Delete this Post ?",
+                                        style: TextStyle(
+                                            color: constantColors.blackColor,
+                                            fontSize: 16.0,
+                                            fontWeight: FontWeight.bold)),
+                                    actions: [
+                                      MaterialButton(
+                                          color: constantColors.blackColor,
+                                          child: Text("No",
+                                              style: TextStyle(
+                                                  decoration:
+                                                      TextDecoration.underline,
+                                                  decorationColor:
+                                                      constantColors.blackColor,
+                                                  color:
+                                                      constantColors.whiteColor,
+                                                  fontWeight: FontWeight.bold,
+                                                  fontSize: 16.0)),
+                                          onPressed: () {
+                                            Navigator.pop(context);
+                                          }),
+                                      MaterialButton(
+                                          color: constantColors.redColor,
+                                          child: Text("Yes",
+                                              style: TextStyle(
+                                                  color:
+                                                      constantColors.whiteColor,
+                                                  fontWeight: FontWeight.bold,
+                                                  fontSize: 16.0)),
+                                          onPressed: () {
+                                            Provider.of<firebaseopertrations>(
+                                                    context,
+                                                    listen: false)
+                                                .deleteUserData(postId, "posts")
+                                                .whenComplete(() =>
+                                                    Navigator.pop(context));
+                                          }),
+                                    ],
+                                  );
+                                });
+                          }),
                     ],
                   ),
                 )

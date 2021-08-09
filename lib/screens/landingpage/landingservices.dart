@@ -131,7 +131,8 @@ class landingservice with ChangeNotifier {
                             onPressed: () {
                               Provider.of<firebaseopertrations>(context,
                                       listen: false)
-                                  .deleteUserData(documentSnapshot['useruid']);
+                                  .deleteUserData(
+                                      documentSnapshot['useruid'], "users");
                             },
                           ),
                         ],
