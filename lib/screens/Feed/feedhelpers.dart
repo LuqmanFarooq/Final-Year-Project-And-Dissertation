@@ -3,8 +3,10 @@ import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:lottie/lottie.dart';
+import 'package:page_transition/page_transition.dart';
 import 'package:provider/provider.dart';
 import 'package:the_social/constants/Constantcolors.dart';
+import 'package:the_social/screens/userprofile/userprofile.dart';
 import 'package:the_social/services/authentication.dart';
 import 'package:the_social/utils/postfunctions.dart';
 import 'package:the_social/utils/uploadpost.dart';
@@ -106,6 +108,20 @@ class feedhelpers with ChangeNotifier {
                   child: Row(
                     children: [
                       GestureDetector(
+                        onTap: () {
+                          if (documentSnapshot['useruid'] !=
+                              Provider.of<authentication>(context,
+                                      listen: false)
+                                  .getUserid) {
+                            Navigator.pushReplacement(
+                                context,
+                                PageTransition(
+                                    child: userProfile(
+                                      userUid: documentSnapshot['useruid'],
+                                    ),
+                                    type: PageTransitionType.bottomToTop));
+                          }
+                        },
                         child: CircleAvatar(
                           backgroundColor: constantColors.blueGreyColor,
                           radius: 20.0,

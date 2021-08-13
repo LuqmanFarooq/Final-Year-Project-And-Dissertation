@@ -1,8 +1,10 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:page_transition/page_transition.dart';
 import 'package:provider/provider.dart';
 import 'package:the_social/constants/Constantcolors.dart';
+import 'package:the_social/screens/userprofile/userprofile.dart';
 import 'package:the_social/services/authentication.dart';
 import 'package:the_social/services/firebaseoperations.dart';
 import 'package:timeago/timeago.dart' as timeago;
@@ -291,6 +293,26 @@ class postfunctions with ChangeNotifier {
                                             padding: const EdgeInsets.only(
                                                 top: 8.0, left: 8.0),
                                             child: GestureDetector(
+                                              onTap: () {
+                                                if (documentSnapshot[
+                                                        'useruid'] !=
+                                                    Provider.of<authentication>(
+                                                            context,
+                                                            listen: false)
+                                                        .getUserid) {
+                                                  Navigator.pushReplacement(
+                                                      context,
+                                                      PageTransition(
+                                                          child: userProfile(
+                                                            userUid:
+                                                                documentSnapshot[
+                                                                    'useruid'],
+                                                          ),
+                                                          type:
+                                                              PageTransitionType
+                                                                  .bottomToTop));
+                                                }
+                                              },
                                               child: CircleAvatar(
                                                 backgroundColor:
                                                     constantColors.darkColor,
@@ -503,6 +525,22 @@ class postfunctions with ChangeNotifier {
                               .map((DocumentSnapshot documentSnapshot) {
                             return ListTile(
                               leading: GestureDetector(
+                                onTap: () {
+                                  if (documentSnapshot['useruid'] !=
+                                      Provider.of<authentication>(context,
+                                              listen: false)
+                                          .getUserid) {
+                                    Navigator.pushReplacement(
+                                        context,
+                                        PageTransition(
+                                            child: userProfile(
+                                              userUid:
+                                                  documentSnapshot['useruid'],
+                                            ),
+                                            type: PageTransitionType
+                                                .bottomToTop));
+                                  }
+                                },
                                 child: CircleAvatar(
                                   backgroundImage: NetworkImage(
                                     documentSnapshot['userimage'],
