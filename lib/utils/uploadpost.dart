@@ -297,6 +297,32 @@ class uploadpost with ChangeNotifier {
                               listen: false)
                           .getInitUserEmail,
                     }).whenComplete(() {
+                      // this will help us to add data to user profile means the post that user is going to upload
+                      //we are going to upload it from here.
+                      return FirebaseFirestore.instance
+                          .collection('users')
+                          .doc(Provider.of<authentication>(context,
+                                  listen: false)
+                              .getUserid)
+                          .collection('posts')
+                          .add({
+                        'caption': captionController.text,
+                        'postimage': getUploadPostImageUrl,
+                        'username': Provider.of<firebaseopertrations>(context,
+                                listen: false)
+                            .getInitUserName,
+                        'userimage': Provider.of<firebaseopertrations>(context,
+                                listen: false)
+                            .getInitUserImage,
+                        'useruid':
+                            Provider.of<authentication>(context, listen: false)
+                                .getUserid,
+                        'time': Timestamp.now(),
+                        'useremail': Provider.of<firebaseopertrations>(context,
+                                listen: false)
+                            .getInitUserEmail,
+                      });
+                    }).whenComplete(() {
                       Navigator.pop(context);
                     });
                   },
