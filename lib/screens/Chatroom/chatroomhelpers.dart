@@ -1,14 +1,31 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:page_transition/page_transition.dart';
 import 'package:provider/provider.dart';
 import 'package:the_social/constants/Constantcolors.dart';
+import 'package:the_social/screens/Messaging/groupmessages.dart';
 import 'package:the_social/services/authentication.dart';
 import 'package:the_social/services/firebaseoperations.dart';
+import 'package:the_social/utils/postfunctions.dart';
+import 'package:timeago/timeago.dart' as timeago;
 
 class chatroomhelpers with ChangeNotifier {
   String chatroomId;
   String get getChatroomId => chatroomId;
+
+  String imageTimePosted;
+  String get getImageTimePosted => imageTimePosted;
+
+  showTimeAgo(dynamic timedata) {
+    Timestamp time = timedata;
+    DateTime dateTime = time.toDate();
+    imageTimePosted = timeago.format(dateTime);
+    print(imageTimePosted);
+    notifyListeners();
+  }
+
   ConstantColors constantColors = ConstantColors();
   final TextEditingController chatnameController = TextEditingController();
   showCreateChatroomSheet(BuildContext context) {
@@ -109,6 +126,7 @@ class chatroomhelpers with ChangeNotifier {
                           'useruid': Provider.of<authentication>(context,
                                   listen: false)
                               .getUserid,
+                          'time': Timestamp.now()
                         }).whenComplete(() {
                           chatnameController.clear();
                           Navigator.pop(context);
@@ -133,6 +151,52 @@ class chatroomhelpers with ChangeNotifier {
                     topLeft: Radius.circular(12.0),
                     topRight: Radius.circular(12.0))),
           );
+        });
+  }
+
+  showchatrooms(BuildContext context) {
+    return StreamBuilder<QuerySnapshot>(
+        stream: FirebaseFirestore.instance.collection('chatrooms').snapshots(),
+        builder: (context, snapshot) {
+          if (snapshot.connectionState == ConnectionState.waiting) {
+            return Center(
+              child: CircularProgressIndicator(),
+            );
+          } else {
+            return ListView(
+              children:
+                  snapshot.data.docs.map((DocumentSnapshot documentSnapshot) {
+                Provider.of<chatroomhelpers>(context, listen: false)
+                    .showTimeAgo(documentSnapshot['time']);
+                return Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Container(
+                    decoration: BoxDecoration(
+                        color: Colors.amber,
+                        borderRadius: BorderRadius.all(Radius.circular(10))),
+                    child: ListTile(
+                      onTap: () {
+                        Navigator.pushReplacement(
+                            context,
+                            PageTransition(
+                                child: groupmessages(
+                                    documentSnapshot: documentSnapshot),
+                                type: PageTransitionType.bottomToTop));
+                      },
+                      leading: Icon(Icons.message_outlined),
+                      title: Text(
+                        documentSnapshot['chatroomname'],
+                        style: TextStyle(fontWeight: FontWeight.bold),
+                      ),
+                      subtitle: Text(
+                          '${Provider.of<chatroomhelpers>(context, listen: false).getImageTimePosted.toString()}'),
+                      //tileColor: Colors.white,
+                    ),
+                  ),
+                );
+              }).toList(),
+            );
+          }
         });
   }
 }

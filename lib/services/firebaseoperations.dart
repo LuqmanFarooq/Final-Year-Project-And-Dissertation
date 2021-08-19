@@ -8,7 +8,7 @@ import 'package:the_social/services/authentication.dart';
 class firebaseopertrations with ChangeNotifier {
   UploadTask imageuploadTask;
 
-  String initUserEmail, initUserName, initUserImage;
+  String initUserName, initUserEmail, initUserImage;
   String get getInitUserName => initUserName;
   String get getInitUserEmail => initUserEmail;
   String get getInitUserImage => initUserImage;

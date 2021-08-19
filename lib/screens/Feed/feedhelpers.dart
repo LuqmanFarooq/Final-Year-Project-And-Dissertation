@@ -91,14 +91,14 @@ class feedhelpers with ChangeNotifier {
           children: snapshot.data.docs.map((DocumentSnapshot documentSnapshot) {
         Provider.of<postfunctions>(context, listen: false)
             .showTimeAgo(documentSnapshot['time']);
-        return Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Container(
-            decoration: BoxDecoration(
-                color: constantColors.yellowColor.withOpacity(0.8),
-                borderRadius: BorderRadius.all(Radius.circular(16.0))),
-            height: MediaQuery.of(context).size.height * 0.63,
-            width: MediaQuery.of(context).size.width,
+        return Container(
+          decoration: BoxDecoration(
+              color: constantColors.yellowColor.withOpacity(0.8),
+              borderRadius: BorderRadius.all(Radius.circular(16.0))),
+          height: MediaQuery.of(context).size.height * 0.63,
+          width: MediaQuery.of(context).size.width,
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,

@@ -5,6 +5,7 @@ import 'package:the_social/constants/Constantcolors.dart';
 import 'package:the_social/screens/Chatroom/chatroomhelpers.dart';
 import 'package:the_social/screens/Feed/feedhelpers.dart';
 import 'package:the_social/screens/Homepage/homepagehelpers.dart';
+import 'package:the_social/screens/Messaging/groupmessageshelper.dart';
 import 'package:the_social/screens/Profile/profilehelpers.dart';
 import 'package:the_social/screens/landingpage/landinghelpers.dart';
 import 'package:the_social/screens/landingpage/landingservices.dart';
@@ -36,6 +37,7 @@ class MyApp extends StatelessWidget {
           home: splashscreen(),
         ),
         providers: [
+          ChangeNotifierProvider(create: (_) => groupMessagingHelper()),
           ChangeNotifierProvider(create: (_) => chatroomhelpers()),
           ChangeNotifierProvider(create: (_) => userprofilehelper()),
           ChangeNotifierProvider(create: (_) => postfunctions()),
