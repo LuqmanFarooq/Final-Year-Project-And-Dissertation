@@ -1,9 +1,14 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:provider/provider.dart';
 import 'package:the_social/constants/Constantcolors.dart';
+import 'package:the_social/services/authentication.dart';
+import 'package:the_social/services/firebaseoperations.dart';
 
 class chatroomhelpers with ChangeNotifier {
+  String chatroomId;
+  String get getChatroomId => chatroomId;
   ConstantColors constantColors = ConstantColors();
   final TextEditingController chatnameController = TextEditingController();
   showCreateChatroomSheet(BuildContext context) {
@@ -28,41 +33,41 @@ class chatroomhelpers with ChangeNotifier {
                       fontWeight: FontWeight.bold,
                       fontSize: 14.0),
                 ),
-                Container(
-                  height: MediaQuery.of(context).size.height * 0.1,
-                  width: MediaQuery.of(context).size.width,
-                  child: StreamBuilder<QuerySnapshot>(
-                    stream: FirebaseFirestore.instance
-                        .collection('chatroomIcons')
-                        .snapshots(),
-                    builder: (context, snapshot) {
-                      if (snapshot.connectionState == ConnectionState.waiting) {
-                        return Center(
-                          child: CircularProgressIndicator(),
-                        );
-                      } else {
-                        return ListView(
-                          scrollDirection: Axis.horizontal,
-                          children: snapshot.data.docs
-                              .map((DocumentSnapshot documentSnapshot) {
-                            return GestureDetector(
-                              onTap: () {},
-                              child: Padding(
-                                padding: const EdgeInsets.only(left: 16.0),
-                                child: Container(
-                                    height: 10.0,
-                                    width: 40.0,
-                                    child: Image.network(
-                                      documentSnapshot['image'],
-                                    )),
-                              ),
-                            );
-                          }).toList(),
-                        );
-                      }
-                    },
-                  ),
-                ),
+                // Container(
+                //   height: MediaQuery.of(context).size.height * 0.1,
+                //   width: MediaQuery.of(context).size.width,
+                //   child: StreamBuilder<QuerySnapshot>(
+                //     stream: FirebaseFirestore.instance
+                //         .collection('chatroomIcons')
+                //         .snapshots(),
+                //     builder: (context, snapshot) {
+                //       if (snapshot.connectionState == ConnectionState.waiting) {
+                //         return Center(
+                //           child: CircularProgressIndicator(),
+                //         );
+                //       } else {
+                //         return ListView(
+                //           scrollDirection: Axis.horizontal,
+                //           children: snapshot.data.docs
+                //               .map((DocumentSnapshot documentSnapshot) {
+                //             return GestureDetector(
+                //               onTap: () {},
+                //               child: Padding(
+                //                 padding: const EdgeInsets.only(left: 16.0),
+                //                 child: Container(
+                //                     height: 10.0,
+                //                     width: 40.0,
+                //                     child: Image.network(
+                //                       documentSnapshot['image'],
+                //                     )),
+                //               ),
+                //             );
+                //           }).toList(),
+                //         );
+                //       }
+                //     },
+                //   ),
+                // ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
@@ -85,7 +90,30 @@ class chatroomhelpers with ChangeNotifier {
                       ),
                     ),
                     FloatingActionButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Provider.of<firebaseopertrations>(context,
+                                listen: false)
+                            .submitChatroomData(chatnameController.text, {
+                          'chatroomname': chatnameController.text,
+                          'username': Provider.of<firebaseopertrations>(context,
+                                  listen: false)
+                              .initUserName,
+                          'userimage': Provider.of<firebaseopertrations>(
+                                  context,
+                                  listen: false)
+                              .initUserImage,
+                          'useremail': Provider.of<firebaseopertrations>(
+                                  context,
+                                  listen: false)
+                              .initUserEmail,
+                          'useruid': Provider.of<authentication>(context,
+                                  listen: false)
+                              .getUserid,
+                        }).whenComplete(() {
+                          chatnameController.clear();
+                          Navigator.pop(context);
+                        });
+                      },
                       backgroundColor: constantColors.blackColor,
                       child: Icon(
                         FontAwesomeIcons.plus,
