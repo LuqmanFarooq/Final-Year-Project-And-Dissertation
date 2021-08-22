@@ -211,8 +211,8 @@ class profilehelpers with ChangeNotifier {
                 width: 150.0,
                 decoration:
                     BoxDecoration(borderRadius: BorderRadius.circular(2.0)),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                child: Wrap(
+                  alignment: WrapAlignment.spaceEvenly,
                   children: [
                     Icon(
                       FontAwesomeIcons.angleDoubleDown,

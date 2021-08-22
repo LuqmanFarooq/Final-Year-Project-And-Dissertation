@@ -1,11 +1,11 @@
 import 'dart:io';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_core/firebase_core.dart';
+//import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+//import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:provider/provider.dart';
 import 'package:the_social/constants/Constantcolors.dart';
@@ -13,6 +13,8 @@ import 'package:the_social/services/authentication.dart';
 import 'package:the_social/services/firebaseoperations.dart';
 
 class uploadpost with ChangeNotifier {
+  //this class is extended from change notifier because this class has all the upload post methods
+  // and all the changes that are going to be made after upload post the change notifier is going to notify it further.
   TextEditingController captionController = TextEditingController();
   ConstantColors constantColors = ConstantColors();
   File uploadPostImage;
@@ -21,6 +23,7 @@ class uploadpost with ChangeNotifier {
   String get getUploadPostImageUrl => uploadpostImageURL;
   final picker = ImagePicker();
   UploadTask imagePostUploadTask;
+  // the above methoned variables are the variable I have globalized  so that I can use in my app further.
 
   Future pickuserPostImage(
       BuildContext context, ImageSource imageSource) async {

@@ -29,6 +29,9 @@ apply plugin: 'com.google.gms.google-services'
 android {
     compileSdkVersion 30
 
+lintOptions { 
+    checkReleaseBuilds false
+}
     sourceSets {
         main.java.srcDirs += 'src/main/kotlin'
     }

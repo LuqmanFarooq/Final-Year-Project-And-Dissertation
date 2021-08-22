@@ -157,7 +157,7 @@ class landinghelpers with ChangeNotifier {
           child: Column(
             children: [
               Text(
-                "By Continuing you agree theSocial's Terms of",
+                "By Continuing you agree City Social's Terms of",
                 style: TextStyle(color: Colors.grey.shade600, fontSize: 12.0),
               ),
               Text(

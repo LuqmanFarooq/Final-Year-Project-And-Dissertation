@@ -133,34 +133,36 @@ class feedhelpers with ChangeNotifier {
                         padding: const EdgeInsets.only(left: 8.0),
                         child: Container(
                           height: 50.0,
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Container(
-                                  child: Text(documentSnapshot['caption'],
+                          child: SingleChildScrollView(
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Container(
+                                    child: Text(documentSnapshot['caption'],
+                                        style: TextStyle(
+                                            color: constantColors.blackColor,
+                                            fontWeight: FontWeight.bold,
+                                            fontSize: 16.0))),
+                                Container(
+                                    child: RichText(
+                                  text: TextSpan(
+                                      text: documentSnapshot['useremail'],
                                       style: TextStyle(
                                           color: constantColors.blackColor,
                                           fontWeight: FontWeight.bold,
-                                          fontSize: 16.0))),
-                              Container(
-                                  child: RichText(
-                                text: TextSpan(
-                                    text: documentSnapshot['useremail'],
-                                    style: TextStyle(
-                                        color: constantColors.blackColor,
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 16.0),
-                                    children: <TextSpan>[
-                                      TextSpan(
-                                          text:
-                                              ' , ${Provider.of<postfunctions>(context, listen: false).getImageTimePosted.toString()}',
-                                          style: TextStyle(
-                                              color: constantColors.blackColor
-                                                  .withOpacity(0.8)))
-                                    ]),
-                              ))
-                            ],
+                                          fontSize: 16.0),
+                                      children: <TextSpan>[
+                                        TextSpan(
+                                            text:
+                                                ' , ${Provider.of<postfunctions>(context, listen: false).getImageTimePosted.toString()}',
+                                            style: TextStyle(
+                                                color: constantColors.blackColor
+                                                    .withOpacity(0.8)))
+                                      ]),
+                                ))
+                              ],
+                            ),
                           ),
                         ),
                       ),
