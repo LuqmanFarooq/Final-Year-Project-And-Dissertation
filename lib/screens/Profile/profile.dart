@@ -62,7 +62,7 @@ class profile extends StatelessWidget {
             child: StreamBuilder<DocumentSnapshot>(
                 stream: FirebaseFirestore.instance
                     .collection('users')
-                    .doc(Provider.of<authentication>(context).getUserid)
+                    .doc(Provider.of<Authentication>(context).getUserid)
                     .snapshots(),
                 builder: (context, snapshot) {
                   if (snapshot.connectionState == ConnectionState.waiting) {

@@ -123,7 +123,7 @@ class chatroomhelpers with ChangeNotifier {
                                   context,
                                   listen: false)
                               .initUserEmail,
-                          'useruid': Provider.of<authentication>(context,
+                          'useruid': Provider.of<Authentication>(context,
                                   listen: false)
                               .getUserid,
                           'time': Timestamp.now()

@@ -70,7 +70,7 @@ class groupMessagingHelper with ChangeNotifier {
                                 ),
                               ),
                               decoration: BoxDecoration(
-                                  color: Provider.of<authentication>(context,
+                                  color: Provider.of<Authentication>(context,
                                                   listen: false)
                                               .getUserid ==
                                           documentSnapshot['useruid']
@@ -99,7 +99,7 @@ class groupMessagingHelper with ChangeNotifier {
         .add({
       'message': messageControler.text,
       'time': Timestamp.now(),
-      'useruid': Provider.of<authentication>(context, listen: false).getUserid,
+      'useruid': Provider.of<Authentication>(context, listen: false).getUserid,
       'username': Provider.of<firebaseopertrations>(context, listen: false)
           .getInitUserEmail,
       'userimage': Provider.of<firebaseopertrations>(context, listen: false)

@@ -192,7 +192,7 @@ class postfunctions with ChangeNotifier {
       'likes': FieldValue.increment(1),
       'username': Provider.of<firebaseopertrations>(context, listen: false)
           .getInitUserName,
-      'useruid': Provider.of<authentication>(context, listen: false).getUserid,
+      'useruid': Provider.of<Authentication>(context, listen: false).getUserid,
       'userimage': Provider.of<firebaseopertrations>(context, listen: false)
           .getInitUserImage,
       'useremail': Provider.of<firebaseopertrations>(context, listen: false)
@@ -211,7 +211,7 @@ class postfunctions with ChangeNotifier {
       'comment': comment,
       'username': Provider.of<firebaseopertrations>(context, listen: false)
           .getInitUserName,
-      'useruid': Provider.of<authentication>(context, listen: false).getUserid,
+      'useruid': Provider.of<Authentication>(context, listen: false).getUserid,
       'userimage': Provider.of<firebaseopertrations>(context, listen: false)
           .getInitUserImage,
       'useremail': Provider.of<firebaseopertrations>(context, listen: false)
@@ -296,7 +296,7 @@ class postfunctions with ChangeNotifier {
                                               onTap: () {
                                                 if (documentSnapshot[
                                                         'useruid'] !=
-                                                    Provider.of<authentication>(
+                                                    Provider.of<Authentication>(
                                                             context,
                                                             listen: false)
                                                         .getUserid) {
@@ -527,7 +527,7 @@ class postfunctions with ChangeNotifier {
                               leading: GestureDetector(
                                 onTap: () {
                                   if (documentSnapshot['useruid'] !=
-                                      Provider.of<authentication>(context,
+                                      Provider.of<Authentication>(context,
                                               listen: false)
                                           .getUserid) {
                                     Navigator.pushReplacement(
@@ -561,7 +561,7 @@ class postfunctions with ChangeNotifier {
                                     fontSize: 12.0,
                                     fontWeight: FontWeight.bold),
                               ),
-                              trailing: Provider.of<authentication>(context,
+                              trailing: Provider.of<Authentication>(context,
                                               listen: false)
                                           .getUserid ==
                                       documentSnapshot['useruid']

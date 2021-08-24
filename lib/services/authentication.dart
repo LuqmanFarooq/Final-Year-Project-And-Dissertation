@@ -4,21 +4,32 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
-class authentication with ChangeNotifier {
+class Authentication with ChangeNotifier {
   final FirebaseAuth firebaseAuth = FirebaseAuth.instance;
   final GoogleSignIn googleSignIn = GoogleSignIn();
 
   String userUid;
   String get getUserid => userUid;
+  static bool successLogin = false;
 
   Future logIntoAccount(String email, String password) async {
-    UserCredential userCredential = await firebaseAuth
-        .signInWithEmailAndPassword(email: email, password: password);
-
-    User user = userCredential.user;
-    userUid = user.uid;
-    print(userUid);
-    notifyListeners();
+    try {
+      UserCredential userCredential = await FirebaseAuth.instance
+          .signInWithEmailAndPassword(email: email, password: password);
+      if (userCredential.user != null) {
+        User user = userCredential.user;
+        userUid = user.uid;
+        print(userUid);
+        successLogin = true;
+        notifyListeners();
+      }
+    } on FirebaseAuthException catch (e) {
+      if (e.code == 'user-not-found') {
+        print('No user found for that email.');
+      } else if (e.code == 'wrong-password') {
+        print('Wrong password provided for that user.');
+      }
+    }
   }
 
   Future createAccount(String email, String password) async {

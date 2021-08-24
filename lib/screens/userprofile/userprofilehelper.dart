@@ -240,7 +240,7 @@ class userprofilehelper with ChangeNotifier {
                       Provider.of<firebaseopertrations>(context, listen: false)
                           .followUser(
                               userUid,
-                              Provider.of<authentication>(context,
+                              Provider.of<Authentication>(context,
                                       listen: false)
                                   .getUserid,
                               {
@@ -252,7 +252,7 @@ class userprofilehelper with ChangeNotifier {
                                         context,
                                         listen: false)
                                     .getInitUserImage,
-                                'useruid': Provider.of<authentication>(context,
+                                'useruid': Provider.of<Authentication>(context,
                                         listen: false)
                                     .getUserid,
                                 'useremail': Provider.of<firebaseopertrations>(
@@ -261,7 +261,7 @@ class userprofilehelper with ChangeNotifier {
                                     .getInitUserEmail,
                                 'time': Timestamp.now()
                               },
-                              Provider.of<authentication>(context,
+                              Provider.of<Authentication>(context,
                                       listen: false)
                                   .getUserid,
                               userUid,
@@ -472,7 +472,7 @@ class userprofilehelper with ChangeNotifier {
                             return ListTile(
                               onTap: () {
                                 if (documentSnapshot['useruid'] !=
-                                    Provider.of<authentication>(context,
+                                    Provider.of<Authentication>(context,
                                             listen: false)
                                         .getUserid) {
                                   Navigator.pushReplacement(
@@ -486,7 +486,7 @@ class userprofilehelper with ChangeNotifier {
                                 }
                               },
                               trailing: documentSnapshot['useruid'] ==
-                                      Provider.of<authentication>(context,
+                                      Provider.of<Authentication>(context,
                                               listen: false)
                                           .getUserid
                                   ? Container(
@@ -580,7 +580,7 @@ class userprofilehelper with ChangeNotifier {
                                     .addlike(
                                         context,
                                         documentSnapshot['caption'],
-                                        Provider.of<authentication>(context,
+                                        Provider.of<Authentication>(context,
                                                 listen: false)
                                             .getUserid);
                               },
@@ -669,7 +669,7 @@ class userprofilehelper with ChangeNotifier {
                         ),
                       ),
                       Spacer(),
-                      Provider.of<authentication>(context, listen: false)
+                      Provider.of<Authentication>(context, listen: false)
                                   .getUserid ==
                               documentSnapshot['useruid']
                           ? IconButton(

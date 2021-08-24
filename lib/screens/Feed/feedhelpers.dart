@@ -110,7 +110,7 @@ class feedhelpers with ChangeNotifier {
                       GestureDetector(
                         onTap: () {
                           if (documentSnapshot['useruid'] !=
-                              Provider.of<authentication>(context,
+                              Provider.of<Authentication>(context,
                                       listen: false)
                                   .getUserid) {
                             Navigator.pushReplacement(
@@ -213,7 +213,7 @@ class feedhelpers with ChangeNotifier {
                                     .addlike(
                                         context,
                                         documentSnapshot['caption'],
-                                        Provider.of<authentication>(context,
+                                        Provider.of<Authentication>(context,
                                                 listen: false)
                                             .getUserid);
                               },
@@ -302,7 +302,7 @@ class feedhelpers with ChangeNotifier {
                         ),
                       ),
                       Spacer(),
-                      Provider.of<authentication>(context, listen: false)
+                      Provider.of<Authentication>(context, listen: false)
                                   .getUserid ==
                               documentSnapshot['useruid']
                           ? IconButton(

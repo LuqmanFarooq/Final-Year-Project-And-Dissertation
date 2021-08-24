@@ -30,7 +30,7 @@ void main() async {
 }
 
 //there are two type of widgets in flutter statefull and stateless
-//here we have used stateless because we dont want the setstae function here.
+//here we have used stateless because we dont want the setstate function here.
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -64,7 +64,7 @@ class MyApp extends StatelessWidget {
           ChangeNotifierProvider(create: (_) => landingutls()),
           ChangeNotifierProvider(create: (_) => firebaseopertrations()),
           ChangeNotifierProvider(create: (_) => landingservice()),
-          ChangeNotifierProvider(create: (_) => authentication()),
+          ChangeNotifierProvider(create: (_) => Authentication()),
           ChangeNotifierProvider(create: (_) => landinghelpers())
         ]);
   }

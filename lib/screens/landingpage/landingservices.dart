@@ -110,7 +110,7 @@ class landingservice with ChangeNotifier {
                               color: constantColors.blackColor,
                             ),
                             onPressed: () {
-                              Provider.of<authentication>(context,
+                              Provider.of<Authentication>(context,
                                       listen: false)
                                   .logIntoAccount(documentSnapshot['useremail'],
                                       documentSnapshot['userpassword'])
@@ -224,18 +224,26 @@ class landingservice with ChangeNotifier {
                           ),
                           onPressed: () {
                             if (userEmailController.text.isNotEmpty) {
-                              Provider.of<authentication>(context,
+                              Provider.of<Authentication>(context,
                                       listen: false)
                                   .logIntoAccount(userEmailController.text,
                                       userPasswordController.text)
                                   .whenComplete(() {
                                 userEmailController.clear();
                                 userPasswordController.clear();
-                                Navigator.pushReplacement(
-                                    context,
-                                    PageTransition(
-                                        child: homepage(),
-                                        type: PageTransitionType.bottomToTop));
+                                // validation if the Credentials are correct
+                                if (Authentication.successLogin == true) {
+                                  Navigator.pushReplacement(
+                                      context,
+                                      PageTransition(
+                                          child: homepage(),
+                                          type:
+                                              PageTransitionType.bottomToTop));
+                                } //if
+                                else {
+                                  warningText(context,
+                                      "Incorrect Email or Password ! Try Again");
+                                }
                               });
                             } else {
                               warningText(context, "Fill all feilds !");
@@ -344,7 +352,7 @@ class landingservice with ChangeNotifier {
                         ),
                         onPressed: () {
                           if (userEmailController.text.isNotEmpty) {
-                            Provider.of<authentication>(context, listen: false)
+                            Provider.of<Authentication>(context, listen: false)
                                 .createAccount(userEmailController.text,
                                     userPasswordController.text)
                                 .whenComplete(() async {
@@ -352,7 +360,7 @@ class landingservice with ChangeNotifier {
                               await Provider.of<firebaseopertrations>(context,
                                       listen: false)
                                   .createUserCollection(context, {
-                                'useruid': Provider.of<authentication>(context,
+                                'useruid': Provider.of<Authentication>(context,
                                         listen: false)
                                     .getUserid,
                                 'useremail': userEmailController.text,

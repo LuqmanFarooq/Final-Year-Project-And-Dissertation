@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -36,25 +37,27 @@ class firebaseopertrations with ChangeNotifier {
   Future createUserCollection(BuildContext context, dynamic data) async {
     return FirebaseFirestore.instance
         .collection('users')
-        .doc(Provider.of<authentication>(context, listen: false).getUserid)
+        .doc(Provider.of<Authentication>(context, listen: false).getUserid)
         .set(data);
   }
 
   Future initUserData(BuildContext context) async {
-    return await FirebaseFirestore.instance
-        .collection('users')
-        .doc(Provider.of<authentication>(context, listen: false).getUserid)
-        .get()
-        .then((doc) {
-      print("Fetching user data");
-      initUserEmail = doc.data()['username'];
-      initUserName = doc.data()['useremail'];
-      initUserImage = doc.data()['userimage'];
-      print(initUserName);
-      print(initUserEmail);
-      print(initUserImage);
-      notifyListeners();
-    });
+    if (initUserName != null) {
+      return await FirebaseFirestore.instance
+          .collection('users')
+          .doc(Provider.of<Authentication>(context, listen: false).getUserid)
+          .get()
+          .then((doc) {
+        print("Fetching user data");
+        initUserEmail = doc.data()['username'];
+        initUserName = doc.data()['useremail'];
+        initUserImage = doc.data()['userimage'];
+        print(initUserName);
+        print(initUserEmail);
+        print(initUserImage);
+        notifyListeners();
+      });
+    }
   }
 
   Future uploadPostData(String postId, dynamic data) async {

@@ -361,7 +361,7 @@ class profilehelpers with ChangeNotifier {
                         fontSize: 18.0,
                       )),
                   onPressed: () {
-                    Provider.of<authentication>(context, listen: false)
+                    Provider.of<Authentication>(context, listen: false)
                         .logOutViaEmail()
                         .whenComplete(() {
                       Navigator.pushReplacement(
@@ -423,7 +423,7 @@ class profilehelpers with ChangeNotifier {
                                     .addlike(
                                         context,
                                         documentSnapshot['caption'],
-                                        Provider.of<authentication>(context,
+                                        Provider.of<Authentication>(context,
                                                 listen: false)
                                             .getUserid);
                               },
@@ -512,7 +512,7 @@ class profilehelpers with ChangeNotifier {
                         ),
                       ),
                       Spacer(),
-                      Provider.of<authentication>(context, listen: false)
+                      Provider.of<Authentication>(context, listen: false)
                                   .getUserid ==
                               documentSnapshot['useruid']
                           ? IconButton(

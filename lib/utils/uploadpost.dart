@@ -293,7 +293,7 @@ class uploadpost with ChangeNotifier {
                               listen: false)
                           .getInitUserImage,
                       'useruid':
-                          Provider.of<authentication>(context, listen: false)
+                          Provider.of<Authentication>(context, listen: false)
                               .getUserid,
                       'time': Timestamp.now(),
                       'useremail': Provider.of<firebaseopertrations>(context,
@@ -304,7 +304,7 @@ class uploadpost with ChangeNotifier {
                       //we are going to upload it from here.
                       return FirebaseFirestore.instance
                           .collection('users')
-                          .doc(Provider.of<authentication>(context,
+                          .doc(Provider.of<Authentication>(context,
                                   listen: false)
                               .getUserid)
                           .collection('posts')
@@ -318,7 +318,7 @@ class uploadpost with ChangeNotifier {
                                 listen: false)
                             .getInitUserImage,
                         'useruid':
-                            Provider.of<authentication>(context, listen: false)
+                            Provider.of<Authentication>(context, listen: false)
                                 .getUserid,
                         'time': Timestamp.now(),
                         'useremail': Provider.of<firebaseopertrations>(context,

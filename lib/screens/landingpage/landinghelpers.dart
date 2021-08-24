@@ -202,7 +202,7 @@ class landinghelpers with ChangeNotifier {
                         }),
                     MaterialButton(
                         color: constantColors.redColor,
-                        child: Text('Sign In',
+                        child: Text('Sign Up',
                             style: TextStyle(
                                 color: constantColors.whiteColor,
                                 fontSize: 18.0,
