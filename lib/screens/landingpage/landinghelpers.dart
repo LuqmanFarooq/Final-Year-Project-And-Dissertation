@@ -22,12 +22,12 @@ class landinghelpers with ChangeNotifier {
     ConstantColors constantColors = ConstantColors();
     return Positioned(
         top: 350,
-        left: 75.0,
+        left: 35.0,
         child: Container(
-          constraints: BoxConstraints(maxWidth: 300.0),
+          constraints: BoxConstraints(maxWidth: 380.0),
           child: RichText(
             text: TextSpan(
-                text: "Are ",
+                text: "Ready ",
                 style: TextStyle(
                     fontFamily: 'Poppins',
                     color: constantColors.blackColor,
@@ -35,7 +35,7 @@ class landinghelpers with ChangeNotifier {
                     fontSize: 30.0),
                 children: <TextSpan>[
                   TextSpan(
-                    text: "You ",
+                    text: "To ",
                     style: TextStyle(
                         fontFamily: 'Poppins',
                         color: constantColors.blackColor,
@@ -43,7 +43,7 @@ class landinghelpers with ChangeNotifier {
                         fontSize: 34.0),
                   ),
                   TextSpan(
-                    text: "Social",
+                    text: "Socialize",
                     style: TextStyle(
                         fontFamily: 'Poppins',
                         color: constantColors.yellowColor,
@@ -79,70 +79,17 @@ class landinghelpers with ChangeNotifier {
                 child: Container(
                   child: Icon(
                     EvaIcons.emailOutline,
-                    color: constantColors.blackColor,
+                    color: constantColors.yellowColor,
+                    size: 40,
                   ),
-                  width: 80.0,
-                  height: 40.0,
+                  width: 250.0,
+                  height: 50.0,
                   decoration: BoxDecoration(
-                      border: Border.all(color: constantColors.blackColor),
+                      border: Border.all(
+                          color: constantColors.yellowColor, width: 3),
                       borderRadius: BorderRadius.circular(10.0)),
                 ),
               ),
-              // GestureDetector(
-              //   onTap: () {
-              //     AlertDialog(
-              //       title: Text(
-              //         "Under Developement !",
-              //         style: TextStyle(
-              //             color: constantColors.whiteColor, fontSize: 16.0),
-              //       ),
-              //     );
-              //   },
-              //   child: Container(
-              //     child: Icon(
-              //       EvaIcons.facebookOutline,
-              //       color: constantColors.blueColor,
-              //     ),
-              //     width: 80.0,
-              //     height: 40.0,
-              //     decoration: BoxDecoration(
-              //         border: Border.all(color: constantColors.blueColor),
-              //         borderRadius: BorderRadius.circular(10.0)),
-              //   ),
-              // ),
-              // GestureDetector(
-              //   onTap: () {
-              //     print("sign in through google");
-              //     AlertDialog(
-              //       backgroundColor: constantColors.darkColor,
-              //       title: Text(
-              //         "Under Developement !",
-              //         style: TextStyle(
-              //             color: constantColors.whiteColor, fontSize: 16.0),
-              //       ),
-              //     );
-              //     // Provider.of<authentication>(context, listen: false)
-              //     //     .signInWithGoogle()
-              //     //     .whenComplete(() {
-              //     //   Navigator.pushReplacement(
-              //     //       context,
-              //     //       PageTransition(
-              //     //           child: homepage(),
-              //     //           type: PageTransitionType.bottomToTop));
-              //     // });
-              //   },
-              //   child: Container(
-              //     child: Icon(
-              //       EvaIcons.googleOutline,
-              //       color: constantColors.redColor,
-              //     ),
-              //     width: 80.0,
-              //     height: 40.0,
-              //     decoration: BoxDecoration(
-              //         border: Border.all(color: constantColors.redColor),
-              //         borderRadius: BorderRadius.circular(10.0)),
-              //   ),
-              // ),
             ],
           ),
         ));
@@ -177,6 +124,16 @@ class landinghelpers with ChangeNotifier {
           return Container(
             child: Column(
               children: [
+                RichText(
+                  text: TextSpan(
+                    text: "Saved Users for Passwordless signin ",
+                    style: TextStyle(
+                        fontFamily: 'Poppins',
+                        color: constantColors.blackColor,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 20.0),
+                  ),
+                ),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 150.0),
                   child: Divider(
@@ -215,7 +172,7 @@ class landinghelpers with ChangeNotifier {
                 )
               ],
             ),
-            height: MediaQuery.of(context).size.height * 0.5,
+            height: MediaQuery.of(context).size.height * 50.5,
             width: MediaQuery.of(context).size.width,
             decoration: BoxDecoration(
               color: constantColors.yellowColor,

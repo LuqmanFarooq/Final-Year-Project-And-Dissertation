@@ -208,11 +208,26 @@ class userprofilehelper with ChangeNotifier {
                       width: 80.0,
                       child: Column(
                         children: [
-                          Text('0',
-                              style: TextStyle(
-                                  color: constantColors.whiteColor,
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 28.0)),
+                          StreamBuilder<QuerySnapshot>(
+                              stream: FirebaseFirestore.instance
+                                  .collection('users')
+                                  .doc(snapshot.data['useruid'])
+                                  .collection('posts')
+                                  .snapshots(),
+                              builder: (context, snapshot) {
+                                if (snapshot.connectionState ==
+                                    ConnectionState.waiting) {
+                                  return Center(
+                                      child: CircularProgressIndicator());
+                                } else {
+                                  return Text(
+                                      snapshot.data.docs.length.toString(),
+                                      style: TextStyle(
+                                          color: constantColors.whiteColor,
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 28.0));
+                                }
+                              }),
                           Text('Posts',
                               style: TextStyle(
                                   color: constantColors.whiteColor,
