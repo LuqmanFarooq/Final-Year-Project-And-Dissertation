@@ -67,7 +67,7 @@ class landingservice with ChangeNotifier {
                                     listen: false)
                                 .uploaduserAvatar(context)
                                 .whenComplete(() {
-                              signinSheet(context);
+                              signupSheet(context);
                             });
                           }),
                     ],
@@ -263,7 +263,7 @@ class landingservice with ChangeNotifier {
         });
   }
 
-  signinSheet(BuildContext context) {
+  signupSheet(BuildContext context) {
     return showModalBottomSheet(
         isScrollControlled: true,
         context: context,
@@ -351,7 +351,13 @@ class landingservice with ChangeNotifier {
                           color: constantColors.whiteColor,
                         ),
                         onPressed: () {
-                          if (userEmailController.text.isNotEmpty) {
+                          if (userPasswordController.text.length < 6) {
+                            warningText(context,
+                                "Passwod cannot be less than 6 characters !");
+                          } else if (userEmailController.text.isEmpty ||
+                              userNameController.text.isEmpty) {
+                            warningText(context, "Fill all feilds !");
+                          } else if (userEmailController.text.isNotEmpty) {
                             Provider.of<Authentication>(context, listen: false)
                                 .createAccount(userEmailController.text,
                                     userPasswordController.text)
@@ -374,14 +380,19 @@ class landingservice with ChangeNotifier {
                               userPasswordController.clear();
                               userNameController.clear();
                               userEmailController.clear();
-                              Navigator.pushReplacement(
-                                  context,
-                                  PageTransition(
-                                      child: homepage(),
-                                      type: PageTransitionType.bottomToTop));
+                              // if user successfully singsup
+                              if (Authentication.successSignup == true) {
+                                Navigator.pushReplacement(
+                                    context,
+                                    PageTransition(
+                                        child: homepage(),
+                                        type: PageTransitionType.bottomToTop));
+                              } //if there is an error
+                              else {
+                                warningText(context,
+                                    "SignUp Unsuccessful Check details again");
+                              }
                             });
-                          } else {
-                            warningText(context, "Fill all feilds !");
                           }
                         }),
                   ),

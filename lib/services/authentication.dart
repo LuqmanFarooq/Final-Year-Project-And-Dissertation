@@ -10,7 +10,9 @@ class Authentication with ChangeNotifier {
 
   String userUid;
   String get getUserid => userUid;
+  // vars for validation
   static bool successLogin = false;
+  static bool successSignup = false;
 
   Future logIntoAccount(String email, String password) async {
     try {
@@ -33,13 +35,17 @@ class Authentication with ChangeNotifier {
   }
 
   Future createAccount(String email, String password) async {
-    UserCredential userCredential = await firebaseAuth
-        .createUserWithEmailAndPassword(email: email, password: password);
-
-    User user = userCredential.user;
-    userUid = user.uid;
-    print(userUid);
-    notifyListeners();
+    try {
+      UserCredential userCredential = await firebaseAuth
+          .createUserWithEmailAndPassword(email: email, password: password);
+      if (userCredential.user != null) {
+        User user = userCredential.user;
+        userUid = user.uid;
+        print(userUid);
+        successSignup = true;
+        notifyListeners();
+      }
+    } on FirebaseAuthException catch (e) {}
   }
 
   Future logOutViaEmail() {
