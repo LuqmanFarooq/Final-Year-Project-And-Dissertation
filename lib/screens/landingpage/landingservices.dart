@@ -201,6 +201,7 @@ class landingservice with ChangeNotifier {
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 10.0),
                       child: TextField(
+                        obscureText: true,
                         controller: userPasswordController,
                         decoration: InputDecoration(
                             hintText: 'Enter Password...',
@@ -329,6 +330,7 @@ class landingservice with ChangeNotifier {
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 10.0),
                     child: TextField(
+                      obscureText: true,
                       controller: userPasswordController,
                       decoration: InputDecoration(
                           hintText: 'Enter Password...',
