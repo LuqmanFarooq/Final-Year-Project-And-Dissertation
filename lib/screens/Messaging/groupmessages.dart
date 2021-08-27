@@ -6,10 +6,10 @@ import 'package:the_social/constants/Constantcolors.dart';
 import 'package:the_social/screens/Homepage/homepage.dart';
 import 'package:the_social/screens/Messaging/groupmessageshelper.dart';
 
-class groupmessages extends StatelessWidget {
+class GroupMessages extends StatelessWidget {
   ConstantColors constantColors = ConstantColors();
   final DocumentSnapshot documentSnapshot;
-  groupmessages({@required this.documentSnapshot});
+  GroupMessages({@required this.documentSnapshot});
   TextEditingController messageControler = TextEditingController();
   @override
   Widget build(BuildContext context) {
@@ -24,7 +24,7 @@ class groupmessages extends StatelessWidget {
               Navigator.pushReplacement(
                   context,
                   PageTransition(
-                      child: homepage(), type: PageTransitionType.bottomToTop));
+                      child: HomePage(), type: PageTransitionType.bottomToTop));
             }),
         centerTitle: true,
         backgroundColor: constantColors.yellowColor.withOpacity(0.2),

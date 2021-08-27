@@ -1,5 +1,4 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:page_transition/page_transition.dart';
@@ -8,10 +7,9 @@ import 'package:the_social/constants/Constantcolors.dart';
 import 'package:the_social/screens/Messaging/groupmessages.dart';
 import 'package:the_social/services/authentication.dart';
 import 'package:the_social/services/firebaseoperations.dart';
-import 'package:the_social/utils/postfunctions.dart';
 import 'package:timeago/timeago.dart' as timeago;
 
-class chatroomhelpers with ChangeNotifier {
+class ChatRoomHelpers with ChangeNotifier {
   String chatroomId;
   String get getChatroomId => chatroomId;
 
@@ -108,18 +106,18 @@ class chatroomhelpers with ChangeNotifier {
                     ),
                     FloatingActionButton(
                       onPressed: () {
-                        Provider.of<firebaseopertrations>(context,
+                        Provider.of<FirebaseOpertrations>(context,
                                 listen: false)
                             .submitChatroomData(chatnameController.text, {
                           'chatroomname': chatnameController.text,
-                          'username': Provider.of<firebaseopertrations>(context,
+                          'username': Provider.of<FirebaseOpertrations>(context,
                                   listen: false)
                               .initUserName,
-                          'userimage': Provider.of<firebaseopertrations>(
+                          'userimage': Provider.of<FirebaseOpertrations>(
                                   context,
                                   listen: false)
                               .initUserImage,
-                          'useremail': Provider.of<firebaseopertrations>(
+                          'useremail': Provider.of<FirebaseOpertrations>(
                                   context,
                                   listen: false)
                               .initUserEmail,
@@ -166,7 +164,7 @@ class chatroomhelpers with ChangeNotifier {
             return ListView(
               children:
                   snapshot.data.docs.map((DocumentSnapshot documentSnapshot) {
-                Provider.of<chatroomhelpers>(context, listen: false)
+                Provider.of<ChatRoomHelpers>(context, listen: false)
                     .showTimeAgo(documentSnapshot['time']);
                 return Padding(
                   padding: const EdgeInsets.all(8.0),
@@ -179,7 +177,7 @@ class chatroomhelpers with ChangeNotifier {
                         Navigator.pushReplacement(
                             context,
                             PageTransition(
-                                child: groupmessages(
+                                child: GroupMessages(
                                     documentSnapshot: documentSnapshot),
                                 type: PageTransitionType.bottomToTop));
                       },
@@ -189,7 +187,7 @@ class chatroomhelpers with ChangeNotifier {
                         style: TextStyle(fontWeight: FontWeight.bold),
                       ),
                       subtitle: Text(
-                          '${Provider.of<chatroomhelpers>(context, listen: false).getImageTimePosted.toString()}'),
+                          '${Provider.of<ChatRoomHelpers>(context, listen: false).getImageTimePosted.toString()}'),
                       //tileColor: Colors.white,
                     ),
                   ),

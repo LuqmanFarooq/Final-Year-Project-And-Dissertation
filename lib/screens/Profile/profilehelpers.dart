@@ -5,14 +5,12 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:provider/provider.dart';
 import 'package:the_social/constants/Constantcolors.dart';
-import 'package:the_social/screens/landingpage/landingpage.dart';
-import 'package:the_social/screens/landingpage/landingutils.dart';
+import 'package:the_social/screens/WelcomePage/WelcomePage.dart';
 import 'package:the_social/screens/userprofile/userprofile.dart';
-import 'package:the_social/screens/userprofile/userprofilehelper.dart';
 import 'package:the_social/services/authentication.dart';
 import 'package:the_social/utils/postfunctions.dart';
 
-class profilehelpers with ChangeNotifier {
+class ProfileHelpers with ChangeNotifier {
   ConstantColors constantColors = ConstantColors();
   Widget headerprofile(BuildContext context, dynamic snapshot) {
     return SizedBox(
@@ -382,7 +380,7 @@ class profilehelpers with ChangeNotifier {
                       Navigator.pushReplacement(
                           context,
                           PageTransition(
-                              child: landingpage(),
+                              child: WelcomePage(),
                               type: PageTransitionType.bottomToTop));
                     });
                   })
@@ -427,13 +425,13 @@ class profilehelpers with ChangeNotifier {
                           children: [
                             GestureDetector(
                               onLongPress: () {
-                                Provider.of<postfunctions>(context,
+                                Provider.of<PostFunctions>(context,
                                         listen: false)
                                     .showlikes(
                                         context, documentSnapshot['caption']);
                               },
                               onTap: () {
-                                Provider.of<postfunctions>(context,
+                                Provider.of<PostFunctions>(context,
                                         listen: false)
                                     .addlike(
                                         context,
@@ -484,7 +482,7 @@ class profilehelpers with ChangeNotifier {
                           children: [
                             GestureDetector(
                               onTap: () {
-                                Provider.of<postfunctions>(context,
+                                Provider.of<PostFunctions>(context,
                                         listen: false)
                                     .showCommentsSheet(
                                         context,
@@ -536,7 +534,7 @@ class profilehelpers with ChangeNotifier {
                                 color: constantColors.blackColor,
                               ),
                               onPressed: () {
-                                Provider.of<postfunctions>(context,
+                                Provider.of<PostFunctions>(context,
                                         listen: false)
                                     .showPostOptions(
                                         context, documentSnapshot['caption']);
@@ -587,7 +585,7 @@ class profilehelpers with ChangeNotifier {
                                 Navigator.pushReplacement(
                                     context,
                                     PageTransition(
-                                        child: userProfile(
+                                        child: UserProfile(
                                             userUid:
                                                 documentSnapshot['useruid']),
                                         type: PageTransitionType.bottomToTop));

@@ -2,11 +2,9 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:eva_icons_flutter/icon_data.dart';
 import 'package:flutter/material.dart';
-import 'package:page_transition/page_transition.dart';
 import 'package:provider/provider.dart';
 import 'package:the_social/constants/Constantcolors.dart';
 import 'package:the_social/screens/Profile/profilehelpers.dart';
-import 'package:the_social/screens/landingpage/landingpage.dart';
 import 'package:the_social/services/authentication.dart';
 
 class profile extends StatelessWidget {
@@ -29,7 +27,7 @@ class profile extends StatelessWidget {
                   color: constantColors.whiteColor,
                 ),
                 onPressed: () {
-                  Provider.of<profilehelpers>(context, listen: false)
+                  Provider.of<ProfileHelpers>(context, listen: false)
                       .logutdialog(context);
                 })
           ],
@@ -70,13 +68,13 @@ class profile extends StatelessWidget {
                   } else {
                     return Column(
                       children: [
-                        Provider.of<profilehelpers>(context, listen: false)
+                        Provider.of<ProfileHelpers>(context, listen: false)
                             .headerprofile(context, snapshot),
-                        Provider.of<profilehelpers>(context, listen: false)
+                        Provider.of<ProfileHelpers>(context, listen: false)
                             .divider(),
-                        Provider.of<profilehelpers>(context, listen: false)
+                        Provider.of<ProfileHelpers>(context, listen: false)
                             .middleProfile(context, snapshot),
-                        Provider.of<profilehelpers>(context, listen: false)
+                        Provider.of<ProfileHelpers>(context, listen: false)
                             .footerProfile(context, snapshot),
                       ],
                     );

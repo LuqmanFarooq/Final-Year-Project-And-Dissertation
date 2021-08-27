@@ -22,8 +22,8 @@ class Authentication with ChangeNotifier {
         User user = userCredential.user;
         userUid = user.uid;
         print(userUid);
-        successLogin = true;
         notifyListeners();
+        successLogin = true;
       }
     } on FirebaseAuthException catch (e) {
       if (e.code == 'user-not-found') {

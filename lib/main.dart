@@ -7,9 +7,9 @@ import 'package:the_social/screens/Feed/feedhelpers.dart';
 import 'package:the_social/screens/Homepage/homepagehelpers.dart';
 import 'package:the_social/screens/Messaging/groupmessageshelper.dart';
 import 'package:the_social/screens/Profile/profilehelpers.dart';
-import 'package:the_social/screens/landingpage/landinghelpers.dart';
-import 'package:the_social/screens/landingpage/landingservices.dart';
-import 'package:the_social/screens/landingpage/landingutils.dart';
+import 'package:the_social/screens/WelcomePage/WelcomePageHelpers.dart';
+import 'package:the_social/screens/WelcomePage/WelcomePageServices.dart';
+import 'package:the_social/screens/WelcomePage/WelcomePageUtils.dart';
 import 'package:the_social/screens/Splashscreen/Splashscreen.dart';
 import 'package:the_social/screens/userprofile/userprofilehelper.dart';
 import 'package:the_social/services/authentication.dart';
@@ -54,18 +54,18 @@ class MyApp extends StatelessWidget {
           //here otherwise we cant render the set state
           //further change notifiacation method enables us to render and use the updated state in the change notifier class where it is extended.
           ChangeNotifierProvider(create: (_) => groupMessagingHelper()),
-          ChangeNotifierProvider(create: (_) => chatroomhelpers()),
-          ChangeNotifierProvider(create: (_) => userprofilehelper()),
-          ChangeNotifierProvider(create: (_) => postfunctions()),
-          ChangeNotifierProvider(create: (_) => feedhelpers()),
+          ChangeNotifierProvider(create: (_) => ChatRoomHelpers()),
+          ChangeNotifierProvider(create: (_) => UserProfileHelper()),
+          ChangeNotifierProvider(create: (_) => PostFunctions()),
+          ChangeNotifierProvider(create: (_) => FeedHelpers()),
           ChangeNotifierProvider(create: (_) => uploadpost()),
-          ChangeNotifierProvider(create: (_) => profilehelpers()),
-          ChangeNotifierProvider(create: (_) => homepagehelpers()),
-          ChangeNotifierProvider(create: (_) => landingutls()),
-          ChangeNotifierProvider(create: (_) => firebaseopertrations()),
-          ChangeNotifierProvider(create: (_) => landingservice()),
+          ChangeNotifierProvider(create: (_) => ProfileHelpers()),
+          ChangeNotifierProvider(create: (_) => HomePageHelpers()),
+          ChangeNotifierProvider(create: (_) => WelcomeUtils()),
+          ChangeNotifierProvider(create: (_) => FirebaseOpertrations()),
+          ChangeNotifierProvider(create: (_) => WelcomeService()),
           ChangeNotifierProvider(create: (_) => Authentication()),
-          ChangeNotifierProvider(create: (_) => landinghelpers())
+          ChangeNotifierProvider(create: (_) => WelcomePageHelpers())
         ]);
   }
 }

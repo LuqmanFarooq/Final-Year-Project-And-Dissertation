@@ -100,9 +100,9 @@ class groupMessagingHelper with ChangeNotifier {
       'message': messageControler.text,
       'time': Timestamp.now(),
       'useruid': Provider.of<Authentication>(context, listen: false).getUserid,
-      'username': Provider.of<firebaseopertrations>(context, listen: false)
+      'username': Provider.of<FirebaseOpertrations>(context, listen: false)
           .getInitUserEmail,
-      'userimage': Provider.of<firebaseopertrations>(context, listen: false)
+      'userimage': Provider.of<FirebaseOpertrations>(context, listen: false)
           .getInitUserImage,
     }).whenComplete(() => messageControler.clear());
   }

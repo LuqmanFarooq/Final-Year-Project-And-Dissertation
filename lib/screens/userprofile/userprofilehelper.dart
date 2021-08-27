@@ -12,7 +12,7 @@ import 'package:the_social/services/authentication.dart';
 import 'package:the_social/services/firebaseoperations.dart';
 import 'package:the_social/utils/postfunctions.dart';
 
-class userprofilehelper with ChangeNotifier {
+class UserProfileHelper with ChangeNotifier {
   ConstantColors constantColors = ConstantColors();
   Widget appBar(BuildContext context) {
     return AppBar(
@@ -26,7 +26,7 @@ class userprofilehelper with ChangeNotifier {
             Navigator.pushReplacement(
                 context,
                 PageTransition(
-                    child: homepage(), type: PageTransitionType.bottomToTop));
+                    child: HomePage(), type: PageTransitionType.bottomToTop));
           }),
       actions: [
         IconButton(
@@ -252,25 +252,25 @@ class userprofilehelper with ChangeNotifier {
                 children: [
                   MaterialButton(
                     onPressed: () {
-                      Provider.of<firebaseopertrations>(context, listen: false)
+                      Provider.of<FirebaseOpertrations>(context, listen: false)
                           .followUser(
                               userUid,
                               Provider.of<Authentication>(context,
                                       listen: false)
                                   .getUserid,
                               {
-                                'username': Provider.of<firebaseopertrations>(
+                                'username': Provider.of<FirebaseOpertrations>(
                                         context,
                                         listen: false)
                                     .getInitUserName,
-                                'userimage': Provider.of<firebaseopertrations>(
+                                'userimage': Provider.of<FirebaseOpertrations>(
                                         context,
                                         listen: false)
                                     .getInitUserImage,
                                 'useruid': Provider.of<Authentication>(context,
                                         listen: false)
                                     .getUserid,
-                                'useremail': Provider.of<firebaseopertrations>(
+                                'useremail': Provider.of<FirebaseOpertrations>(
                                         context,
                                         listen: false)
                                     .getInitUserEmail,
@@ -493,7 +493,7 @@ class userprofilehelper with ChangeNotifier {
                                   Navigator.pushReplacement(
                                       context,
                                       PageTransition(
-                                          child: userProfile(
+                                          child: UserProfile(
                                               userUid:
                                                   documentSnapshot['useruid']),
                                           type:
@@ -584,13 +584,13 @@ class userprofilehelper with ChangeNotifier {
                           children: [
                             GestureDetector(
                               onLongPress: () {
-                                Provider.of<postfunctions>(context,
+                                Provider.of<PostFunctions>(context,
                                         listen: false)
                                     .showlikes(
                                         context, documentSnapshot['caption']);
                               },
                               onTap: () {
-                                Provider.of<postfunctions>(context,
+                                Provider.of<PostFunctions>(context,
                                         listen: false)
                                     .addlike(
                                         context,
@@ -641,7 +641,7 @@ class userprofilehelper with ChangeNotifier {
                           children: [
                             GestureDetector(
                               onTap: () {
-                                Provider.of<postfunctions>(context,
+                                Provider.of<PostFunctions>(context,
                                         listen: false)
                                     .showCommentsSheet(
                                         context,
@@ -693,7 +693,7 @@ class userprofilehelper with ChangeNotifier {
                                 color: constantColors.blackColor,
                               ),
                               onPressed: () {
-                                Provider.of<postfunctions>(context,
+                                Provider.of<PostFunctions>(context,
                                         listen: false)
                                     .showPostOptions(
                                         context, documentSnapshot['caption']);

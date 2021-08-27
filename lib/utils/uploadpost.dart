@@ -282,21 +282,21 @@ class uploadpost with ChangeNotifier {
                     ),
                   ),
                   onPressed: () {
-                    Provider.of<firebaseopertrations>(context, listen: false)
+                    Provider.of<FirebaseOpertrations>(context, listen: false)
                         .uploadPostData(captionController.text, {
                       'caption': captionController.text,
                       'postimage': getUploadPostImageUrl,
-                      'username': Provider.of<firebaseopertrations>(context,
+                      'username': Provider.of<FirebaseOpertrations>(context,
                               listen: false)
                           .getInitUserName,
-                      'userimage': Provider.of<firebaseopertrations>(context,
+                      'userimage': Provider.of<FirebaseOpertrations>(context,
                               listen: false)
                           .getInitUserImage,
                       'useruid':
                           Provider.of<Authentication>(context, listen: false)
                               .getUserid,
                       'time': Timestamp.now(),
-                      'useremail': Provider.of<firebaseopertrations>(context,
+                      'useremail': Provider.of<FirebaseOpertrations>(context,
                               listen: false)
                           .getInitUserEmail,
                     }).whenComplete(() {
@@ -311,17 +311,17 @@ class uploadpost with ChangeNotifier {
                           .add({
                         'caption': captionController.text,
                         'postimage': getUploadPostImageUrl,
-                        'username': Provider.of<firebaseopertrations>(context,
+                        'username': Provider.of<FirebaseOpertrations>(context,
                                 listen: false)
                             .getInitUserName,
-                        'userimage': Provider.of<firebaseopertrations>(context,
+                        'userimage': Provider.of<FirebaseOpertrations>(context,
                                 listen: false)
                             .getInitUserImage,
                         'useruid':
                             Provider.of<Authentication>(context, listen: false)
                                 .getUserid,
                         'time': Timestamp.now(),
-                        'useremail': Provider.of<firebaseopertrations>(context,
+                        'useremail': Provider.of<FirebaseOpertrations>(context,
                                 listen: false)
                             .getInitUserEmail,
                       });

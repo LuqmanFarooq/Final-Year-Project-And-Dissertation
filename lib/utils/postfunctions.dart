@@ -9,7 +9,7 @@ import 'package:the_social/services/authentication.dart';
 import 'package:the_social/services/firebaseoperations.dart';
 import 'package:timeago/timeago.dart' as timeago;
 
-class postfunctions with ChangeNotifier {
+class PostFunctions with ChangeNotifier {
   TextEditingController commentContrller = TextEditingController();
   ConstantColors constantColors = ConstantColors();
   TextEditingController updatedCaptionController = TextEditingController();
@@ -87,7 +87,7 @@ class postfunctions with ChangeNotifier {
                                           ),
                                           FloatingActionButton(
                                             onPressed: () {
-                                              Provider.of<firebaseopertrations>(
+                                              Provider.of<FirebaseOpertrations>(
                                                       context,
                                                       listen: false)
                                                   .updateCaption(
@@ -157,7 +157,7 @@ class postfunctions with ChangeNotifier {
                                                   fontWeight: FontWeight.bold,
                                                   fontSize: 16.0)),
                                           onPressed: () {
-                                            Provider.of<firebaseopertrations>(
+                                            Provider.of<FirebaseOpertrations>(
                                                     context,
                                                     listen: false)
                                                 .deleteUserData(postId, "posts")
@@ -190,12 +190,12 @@ class postfunctions with ChangeNotifier {
         .doc(subDocId)
         .set({
       'likes': FieldValue.increment(1),
-      'username': Provider.of<firebaseopertrations>(context, listen: false)
+      'username': Provider.of<FirebaseOpertrations>(context, listen: false)
           .getInitUserName,
       'useruid': Provider.of<Authentication>(context, listen: false).getUserid,
-      'userimage': Provider.of<firebaseopertrations>(context, listen: false)
+      'userimage': Provider.of<FirebaseOpertrations>(context, listen: false)
           .getInitUserImage,
-      'useremail': Provider.of<firebaseopertrations>(context, listen: false)
+      'useremail': Provider.of<FirebaseOpertrations>(context, listen: false)
           .getInitUserEmail,
       'time': Timestamp.now()
     });
@@ -209,12 +209,12 @@ class postfunctions with ChangeNotifier {
         .doc(comment)
         .set({
       'comment': comment,
-      'username': Provider.of<firebaseopertrations>(context, listen: false)
+      'username': Provider.of<FirebaseOpertrations>(context, listen: false)
           .getInitUserName,
       'useruid': Provider.of<Authentication>(context, listen: false).getUserid,
-      'userimage': Provider.of<firebaseopertrations>(context, listen: false)
+      'userimage': Provider.of<FirebaseOpertrations>(context, listen: false)
           .getInitUserImage,
-      'useremail': Provider.of<firebaseopertrations>(context, listen: false)
+      'useremail': Provider.of<FirebaseOpertrations>(context, listen: false)
           .getInitUserEmail,
       'time': Timestamp.now()
     });
@@ -303,7 +303,7 @@ class postfunctions with ChangeNotifier {
                                                   Navigator.pushReplacement(
                                                       context,
                                                       PageTransition(
-                                                          child: userProfile(
+                                                          child: UserProfile(
                                                             userUid:
                                                                 documentSnapshot[
                                                                     'useruid'],
@@ -533,7 +533,7 @@ class postfunctions with ChangeNotifier {
                                     Navigator.pushReplacement(
                                         context,
                                         PageTransition(
-                                            child: userProfile(
+                                            child: UserProfile(
                                               userUid:
                                                   documentSnapshot['useruid'],
                                             ),

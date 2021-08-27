@@ -5,7 +5,7 @@ import 'package:provider/provider.dart';
 import 'package:the_social/constants/Constantcolors.dart';
 import 'package:the_social/services/firebaseoperations.dart';
 
-class homepagehelpers with ChangeNotifier {
+class HomePageHelpers with ChangeNotifier {
   ConstantColors constantColors = ConstantColors();
 
   Widget bottomNavBar(
@@ -32,7 +32,7 @@ class homepagehelpers with ChangeNotifier {
             icon: CircleAvatar(
           radius: 35.0,
           backgroundColor: constantColors.blueGreyColor,
-          backgroundImage: NetworkImage(Provider.of<firebaseopertrations>(
+          backgroundImage: NetworkImage(Provider.of<FirebaseOpertrations>(
                       context,
                       listen: false)
                   .getInitUserImage ??

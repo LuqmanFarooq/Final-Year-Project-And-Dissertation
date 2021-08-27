@@ -4,14 +4,14 @@ import 'package:provider/provider.dart';
 import 'package:the_social/constants/Constantcolors.dart';
 import 'package:the_social/screens/Chatroom/chatroomhelpers.dart';
 
-class chatroom extends StatelessWidget {
+class ChatRoom extends StatelessWidget {
   ConstantColors constantColors = ConstantColors();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          Provider.of<chatroomhelpers>(context, listen: false)
+          Provider.of<ChatRoomHelpers>(context, listen: false)
               .showCreateChatroomSheet(context);
         },
         backgroundColor: constantColors.yellowColor,
@@ -38,7 +38,7 @@ class chatroom extends StatelessWidget {
               color: constantColors.yellowColor,
             ),
             onPressed: () {
-              Provider.of<chatroomhelpers>(context, listen: false)
+              Provider.of<ChatRoomHelpers>(context, listen: false)
                   .showCreateChatroomSheet(context);
             }),
         backgroundColor: constantColors.yellowColor.withOpacity(0.2),
@@ -64,7 +64,7 @@ class chatroom extends StatelessWidget {
       body: Container(
         height: MediaQuery.of(context).size.height,
         width: MediaQuery.of(context).size.width,
-        child: Provider.of<chatroomhelpers>(context, listen: false)
+        child: Provider.of<ChatRoomHelpers>(context, listen: false)
             .showchatrooms(context),
       ),
     );

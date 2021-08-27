@@ -5,14 +5,14 @@ import 'package:provider/provider.dart';
 import 'package:the_social/constants/Constantcolors.dart';
 import 'package:the_social/screens/userprofile/userprofilehelper.dart';
 
-class userProfile extends StatelessWidget {
+class UserProfile extends StatelessWidget {
   final String userUid;
-  userProfile({@required this.userUid});
+  UserProfile({@required this.userUid});
   final ConstantColors constantColors = ConstantColors();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: Provider.of<userprofilehelper>(context, listen: false)
+        appBar: Provider.of<UserProfileHelper>(context, listen: false)
             .appBar(context),
         body: SingleChildScrollView(
             child: Padding(
@@ -31,13 +31,13 @@ class userProfile extends StatelessWidget {
                   } else {
                     return Column(
                       children: [
-                        Provider.of<userprofilehelper>(context, listen: false)
+                        Provider.of<UserProfileHelper>(context, listen: false)
                             .headerprofile(context, snapshot, userUid),
-                        Provider.of<userprofilehelper>(context, listen: false)
+                        Provider.of<UserProfileHelper>(context, listen: false)
                             .divider(),
-                        Provider.of<userprofilehelper>(context, listen: false)
+                        Provider.of<UserProfileHelper>(context, listen: false)
                             .middleProfile(context, snapshot),
-                        Provider.of<userprofilehelper>(context, listen: false)
+                        Provider.of<UserProfileHelper>(context, listen: false)
                             .footerProfile(context, snapshot),
                       ],
                     );

@@ -2,7 +2,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:the_social/constants/Constantcolors.dart';
-import 'package:the_social/screens/landingpage/landingpage.dart';
+import 'package:the_social/screens/WelcomePage/WelcomePage.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
 
 //this is splash screen here we have used an animation and added some timer
@@ -23,7 +23,7 @@ class _SplashscreenState extends State<Splashscreen> {
         () => Navigator.pushReplacement(
             context,
             PageTransition(
-                child: landingpage(), type: PageTransitionType.bottomToTop)));
+                child: WelcomePage(), type: PageTransitionType.bottomToTop)));
     super.initState();
   }
 

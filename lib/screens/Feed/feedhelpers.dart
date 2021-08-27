@@ -11,7 +11,7 @@ import 'package:the_social/services/authentication.dart';
 import 'package:the_social/utils/postfunctions.dart';
 import 'package:the_social/utils/uploadpost.dart';
 
-class feedhelpers with ChangeNotifier {
+class FeedHelpers with ChangeNotifier {
   ConstantColors constantColors = ConstantColors();
   Widget appBar(BuildContext context) {
     return AppBar(
@@ -89,7 +89,7 @@ class feedhelpers with ChangeNotifier {
       padding: const EdgeInsets.only(bottom: 150.0),
       child: ListView(
           children: snapshot.data.docs.map((DocumentSnapshot documentSnapshot) {
-        Provider.of<postfunctions>(context, listen: false)
+        Provider.of<PostFunctions>(context, listen: false)
             .showTimeAgo(documentSnapshot['time']);
         return Container(
           decoration: BoxDecoration(
@@ -116,7 +116,7 @@ class feedhelpers with ChangeNotifier {
                             Navigator.pushReplacement(
                                 context,
                                 PageTransition(
-                                    child: userProfile(
+                                    child: UserProfile(
                                       userUid: documentSnapshot['useruid'],
                                     ),
                                     type: PageTransitionType.bottomToTop));
@@ -155,7 +155,7 @@ class feedhelpers with ChangeNotifier {
                                       children: <TextSpan>[
                                         TextSpan(
                                             text:
-                                                ' , ${Provider.of<postfunctions>(context, listen: false).getImageTimePosted.toString()}',
+                                                ' , ${Provider.of<PostFunctions>(context, listen: false).getImageTimePosted.toString()}',
                                             style: TextStyle(
                                                 color: constantColors.blackColor
                                                     .withOpacity(0.8)))
@@ -202,13 +202,13 @@ class feedhelpers with ChangeNotifier {
                           children: [
                             GestureDetector(
                               onLongPress: () {
-                                Provider.of<postfunctions>(context,
+                                Provider.of<PostFunctions>(context,
                                         listen: false)
                                     .showlikes(
                                         context, documentSnapshot['caption']);
                               },
                               onTap: () {
-                                Provider.of<postfunctions>(context,
+                                Provider.of<PostFunctions>(context,
                                         listen: false)
                                     .addlike(
                                         context,
@@ -259,7 +259,7 @@ class feedhelpers with ChangeNotifier {
                           children: [
                             GestureDetector(
                               onTap: () {
-                                Provider.of<postfunctions>(context,
+                                Provider.of<PostFunctions>(context,
                                         listen: false)
                                     .showCommentsSheet(
                                         context,
@@ -311,7 +311,7 @@ class feedhelpers with ChangeNotifier {
                                 color: constantColors.blackColor,
                               ),
                               onPressed: () {
-                                Provider.of<postfunctions>(context,
+                                Provider.of<PostFunctions>(context,
                                         listen: false)
                                     .showPostOptions(
                                         context, documentSnapshot['caption']);

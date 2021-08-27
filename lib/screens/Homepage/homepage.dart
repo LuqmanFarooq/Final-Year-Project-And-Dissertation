@@ -1,4 +1,3 @@
-import 'package:custom_navigation_bar/custom_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:the_social/constants/Constantcolors.dart';
@@ -8,19 +7,19 @@ import 'package:the_social/screens/Homepage/homepagehelpers.dart';
 import 'package:the_social/screens/Profile/profile.dart';
 import 'package:the_social/services/firebaseoperations.dart';
 
-class homepage extends StatefulWidget {
+class HomePage extends StatefulWidget {
   @override
-  _homepageState createState() => _homepageState();
+  _HomePageState createState() => _HomePageState();
 }
 
-class _homepageState extends State<homepage> {
+class _HomePageState extends State<HomePage> {
   ConstantColors constantColors = ConstantColors();
   final PageController homepageController = PageController();
   int pageIndex = 0;
 
   @override
   void initState() {
-    Provider.of<firebaseopertrations>(context, listen: false)
+    Provider.of<FirebaseOpertrations>(context, listen: false)
         .initUserData(context);
     super.initState();
   }
@@ -31,7 +30,7 @@ class _homepageState extends State<homepage> {
         backgroundColor: constantColors.darkColor,
         body: PageView(
           controller: homepageController,
-          children: [feed(), chatroom(), profile()],
+          children: [Feed(), ChatRoom(), profile()],
           physics: NeverScrollableScrollPhysics(),
           onPageChanged: (page) {
             setState(() {
@@ -40,7 +39,7 @@ class _homepageState extends State<homepage> {
           },
         ),
         bottomNavigationBar:
-            Provider.of<homepagehelpers>(context, listen: false)
+            Provider.of<HomePageHelpers>(context, listen: false)
                 .bottomNavBar(context, pageIndex, homepageController));
   }
 }
