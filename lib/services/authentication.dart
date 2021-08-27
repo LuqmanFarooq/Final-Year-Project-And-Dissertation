@@ -22,13 +22,15 @@ class Authentication with ChangeNotifier {
         User user = userCredential.user;
         userUid = user.uid;
         print(userUid);
-        notifyListeners();
         successLogin = true;
+        notifyListeners();
       }
     } on FirebaseAuthException catch (e) {
       if (e.code == 'user-not-found') {
+        successLogin = false;
         print('No user found for that email.');
       } else if (e.code == 'wrong-password') {
+        successLogin = false;
         print('Wrong password provided for that user.');
       }
     }
@@ -45,7 +47,9 @@ class Authentication with ChangeNotifier {
         successSignup = true;
         notifyListeners();
       }
-    } on FirebaseAuthException catch (e) {}
+    } on FirebaseAuthException catch (e) {
+      return null;
+    }
   }
 
   Future logOutViaEmail() {

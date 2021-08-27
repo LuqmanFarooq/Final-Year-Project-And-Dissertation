@@ -9,6 +9,7 @@ import 'package:the_social/screens/Homepage/homepage.dart';
 import 'package:the_social/screens/WelcomePage/WelcomePageUtils.dart';
 import 'package:the_social/services/authentication.dart';
 import 'package:the_social/services/firebaseoperations.dart';
+import 'package:email_validator/email_validator.dart';
 
 class WelcomeService with ChangeNotifier {
   ConstantColors constantColors = ConstantColors();
@@ -225,27 +226,32 @@ class WelcomeService with ChangeNotifier {
                           ),
                           onPressed: () {
                             if (userEmailController.text.isNotEmpty) {
-                              Provider.of<Authentication>(context,
-                                      listen: false)
-                                  .logIntoAccount(userEmailController.text,
-                                      userPasswordController.text)
-                                  .whenComplete(() {
-                                userEmailController.clear();
-                                userPasswordController.clear();
-                                // validation if the Credentials are correct
-                                if (Authentication.successLogin == true) {
-                                  Navigator.pushReplacement(
-                                      context,
-                                      PageTransition(
-                                          child: HomePage(),
-                                          type:
-                                              PageTransitionType.bottomToTop));
-                                } //if
-                                else {
-                                  warningText(context,
-                                      "Incorrect Email or Password ! Try Again");
-                                }
-                              });
+                              if (!EmailValidator.validate(
+                                  userEmailController.text)) {
+                                warningText(
+                                    context, "Please enter a valid email");
+                              } else
+                                Provider.of<Authentication>(context,
+                                        listen: false)
+                                    .logIntoAccount(userEmailController.text,
+                                        userPasswordController.text)
+                                    .whenComplete(() {
+                                  userEmailController.clear();
+                                  userPasswordController.clear();
+                                  // validation if the Credentials are correct
+                                  if (Authentication.successLogin == true) {
+                                    Navigator.pushReplacement(
+                                        context,
+                                        PageTransition(
+                                            child: HomePage(),
+                                            type: PageTransitionType
+                                                .bottomToTop));
+                                  } //if
+                                  else {
+                                    warningText(context,
+                                        "Incorrect Email or Password ! Try Again");
+                                  }
+                                });
                             } else {
                               warningText(context, "Fill all feilds !");
                             }
@@ -359,6 +365,9 @@ class WelcomeService with ChangeNotifier {
                           } else if (userEmailController.text.isEmpty ||
                               userNameController.text.isEmpty) {
                             warningText(context, "Fill all feilds !");
+                          } else if (!EmailValidator.validate(
+                              userEmailController.text)) {
+                            warningText(context, "Enter a valid Email");
                           } else if (userEmailController.text.isNotEmpty) {
                             Provider.of<Authentication>(context, listen: false)
                                 .createAccount(userEmailController.text,
