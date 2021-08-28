@@ -19,3 +19,22 @@ App Name    | City Social
 
 ## Project Overview
 A Social Media application that we named "City Social" is an android app which features photo sharing along with captions.The reason of calling it city social is because unlike other famous social media application all users who signs up on this application can see posts of every other user that is on the network of this app.In this way it acts like a city feed as well in which users can share news as well as their photos.Users can Follow each other and the posts of user whom a user follow will be shown in recently added section of profile page.Users can like a post and can do real time messaging by commenting on posts.There is a chat feature as well in which users can create a group and chat with each other.
+## Software Requirements
+- [Visual Studio Code](https://code.visualstudio.com/download)
+- [Flutter](https://flutter.dev/)
+- [Dart](https://dart.dev/)
+- [Firebase](https://firebase.google.com/)
+- [Apptim](https://www.apptim.com/)
+## Technology stack
+- Flutter in the UI and the FrontEnd of the Application.
+- Dart the language used with flutter framework.
+- Firebase Authentication for handling user authenticaton and Cloud Firestore(cloud-hosted, NoSQL database) as backend of the Application.
+## Screens
+- Splash Screen
+- Welcome Screen
+- Login Screen
+- Sign up Screen
+- Timeline Feed Screen / Home Screen
+- Group Chat Screen
+- profile page
+- Comments Page
