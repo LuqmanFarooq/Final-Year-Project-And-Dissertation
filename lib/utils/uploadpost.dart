@@ -333,7 +333,7 @@ class uploadpost with ChangeNotifier {
                 )
               ],
             ),
-            height: MediaQuery.of(context).size.height * 0.75,
+            height: MediaQuery.of(context).size.height * 0.90,
             width: MediaQuery.of(context).size.width,
             decoration: BoxDecoration(
                 color: constantColors.yellowColor,

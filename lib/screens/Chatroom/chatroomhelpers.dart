@@ -42,47 +42,12 @@ class ChatRoomHelpers with ChangeNotifier {
                   ),
                 ),
                 Text(
-                  'Select Chatroom Avatar',
+                  'Chat Room Creation',
                   style: TextStyle(
                       color: constantColors.blackColor,
                       fontWeight: FontWeight.bold,
                       fontSize: 14.0),
                 ),
-                // Container(
-                //   height: MediaQuery.of(context).size.height * 0.1,
-                //   width: MediaQuery.of(context).size.width,
-                //   child: StreamBuilder<QuerySnapshot>(
-                //     stream: FirebaseFirestore.instance
-                //         .collection('chatroomIcons')
-                //         .snapshots(),
-                //     builder: (context, snapshot) {
-                //       if (snapshot.connectionState == ConnectionState.waiting) {
-                //         return Center(
-                //           child: CircularProgressIndicator(),
-                //         );
-                //       } else {
-                //         return ListView(
-                //           scrollDirection: Axis.horizontal,
-                //           children: snapshot.data.docs
-                //               .map((DocumentSnapshot documentSnapshot) {
-                //             return GestureDetector(
-                //               onTap: () {},
-                //               child: Padding(
-                //                 padding: const EdgeInsets.only(left: 16.0),
-                //                 child: Container(
-                //                     height: 10.0,
-                //                     width: 40.0,
-                //                     child: Image.network(
-                //                       documentSnapshot['image'],
-                //                     )),
-                //               ),
-                //             );
-                //           }).toList(),
-                //         );
-                //       }
-                //     },
-                //   ),
-                // ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
@@ -141,7 +106,7 @@ class ChatRoomHelpers with ChangeNotifier {
                 )
               ],
             ),
-            height: MediaQuery.of(context).size.height * 0.50,
+            height: MediaQuery.of(context).size.height * 0.90,
             width: MediaQuery.of(context).size.width,
             decoration: BoxDecoration(
                 color: constantColors.yellowColor,

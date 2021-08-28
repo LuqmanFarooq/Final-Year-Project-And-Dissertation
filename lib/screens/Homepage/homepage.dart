@@ -5,6 +5,7 @@ import 'package:the_social/screens/Chatroom/chatroom.dart';
 import 'package:the_social/screens/Feed/feed.dart';
 import 'package:the_social/screens/Homepage/homepagehelpers.dart';
 import 'package:the_social/screens/Profile/profile.dart';
+import 'package:the_social/screens/Profile/profilehelpers.dart';
 import 'package:the_social/services/firebaseoperations.dart';
 
 class HomePage extends StatefulWidget {
@@ -26,20 +27,32 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        backgroundColor: constantColors.darkColor,
-        body: PageView(
-          controller: homepageController,
-          children: [Feed(), ChatRoom(), profile()],
-          physics: NeverScrollableScrollPhysics(),
-          onPageChanged: (page) {
-            setState(() {
-              pageIndex = page;
-            });
-          },
-        ),
-        bottomNavigationBar:
-            Provider.of<HomePageHelpers>(context, listen: false)
-                .bottomNavBar(context, pageIndex, homepageController));
+    Future<bool> _onBackPressed() {
+      if (homepageController.page.round() == homepageController.initialPage) {
+        return Provider.of<ProfileHelpers>(context, listen: false)
+            .logutdialog(context);
+      } else
+        return homepageController.previousPage(
+            duration: Duration(milliseconds: 300), curve: Curves.bounceOut);
+    }
+
+    return WillPopScope(
+      onWillPop: () => _onBackPressed(),
+      child: Scaffold(
+          backgroundColor: constantColors.darkColor,
+          body: PageView(
+            controller: homepageController,
+            children: [Feed(), ChatRoom(), profile()],
+            physics: NeverScrollableScrollPhysics(),
+            onPageChanged: (page) {
+              setState(() {
+                pageIndex = page;
+              });
+            },
+          ),
+          bottomNavigationBar:
+              Provider.of<HomePageHelpers>(context, listen: false)
+                  .bottomNavBar(context, pageIndex, homepageController)),
+    );
   }
 }

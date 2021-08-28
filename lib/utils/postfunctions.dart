@@ -242,7 +242,7 @@ class PostFunctions with ChangeNotifier {
                     ),
                   ),
                   Container(
-                    width: 100.0,
+                    width: 150.0,
                     decoration: BoxDecoration(
                       color: Colors.black,
                       border: Border.all(color: constantColors.blackColor),
@@ -259,7 +259,7 @@ class PostFunctions with ChangeNotifier {
                     ),
                   ),
                   Container(
-                    height: MediaQuery.of(context).size.height * 0.3,
+                    height: MediaQuery.of(context).size.height * 10,
                     width: MediaQuery.of(context).size.width,
                     child: StreamBuilder<QuerySnapshot>(
                       stream: FirebaseFirestore.instance
