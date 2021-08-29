@@ -170,12 +170,22 @@ class WelcomeService with ChangeNotifier {
         builder: (context) {
           return SafeArea(
             child: Padding(
-              padding: const EdgeInsets.only(top: 25.0),
+              padding: const EdgeInsets.only(top: 65.0),
               child: Container(
                 height: MediaQuery.of(context).size.height,
                 width: MediaQuery.of(context).size.width,
                 child: Column(
                   children: [
+                    RichText(
+                      text: TextSpan(
+                        text: "Login Screen",
+                        style: TextStyle(
+                            fontFamily: 'Poppins',
+                            color: constantColors.blackColor,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 30.0),
+                      ),
+                    ),
                     Padding(
                       padding: EdgeInsets.symmetric(horizontal: 150.0),
                       child: Divider(
@@ -276,7 +286,7 @@ class WelcomeService with ChangeNotifier {
         context: context,
         builder: (context) {
           return Padding(
-            padding: const EdgeInsets.only(top: 25.0),
+            padding: const EdgeInsets.only(top: 65.0),
             child: Container(
               height: MediaQuery.of(context).size.height,
               width: MediaQuery.of(context).size.width,
@@ -287,6 +297,16 @@ class WelcomeService with ChangeNotifier {
                       topRight: Radius.circular(12.0))),
               child: Column(
                 children: [
+                  RichText(
+                    text: TextSpan(
+                      text: "SignUp Screen",
+                      style: TextStyle(
+                          fontFamily: 'Poppins',
+                          color: constantColors.blackColor,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 30.0),
+                    ),
+                  ),
                   Padding(
                     padding: EdgeInsets.symmetric(horizontal: 150.0),
                     child: Divider(
@@ -299,7 +319,7 @@ class WelcomeService with ChangeNotifier {
                         Provider.of<WelcomeUtils>(context, listen: false)
                             .getuserAvatar),
                     backgroundColor: constantColors.redColor,
-                    radius: 60.0,
+                    radius: 100.0,
                   ),
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 10.0),

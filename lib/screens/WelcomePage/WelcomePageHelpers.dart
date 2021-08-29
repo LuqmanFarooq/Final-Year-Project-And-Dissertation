@@ -123,12 +123,12 @@ class WelcomePageHelpers with ChangeNotifier {
               children: [
                 RichText(
                   text: TextSpan(
-                    text: "Saved Users for Passwordless signin ",
+                    text: "Login Or SignUp",
                     style: TextStyle(
                         fontFamily: 'Poppins',
                         color: constantColors.blackColor,
                         fontWeight: FontWeight.bold,
-                        fontSize: 20.0),
+                        fontSize: 30.0),
                   ),
                 ),
                 Padding(
@@ -138,8 +138,17 @@ class WelcomePageHelpers with ChangeNotifier {
                     color: constantColors.blackColor,
                   ),
                 ),
-                Provider.of<WelcomeService>(context, listen: false)
-                    .passwordLessSignIn(context),
+                Spacer(flex: 2),
+                RichText(
+                  text: TextSpan(
+                    text: "Already a user ? Please select SignIn",
+                    style: TextStyle(
+                        fontFamily: 'Poppins',
+                        color: constantColors.blackColor,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 20.0),
+                  ),
+                ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
@@ -154,19 +163,31 @@ class WelcomePageHelpers with ChangeNotifier {
                           Provider.of<WelcomeService>(context, listen: false)
                               .loginSheet(context);
                         }),
-                    MaterialButton(
-                        color: constantColors.redColor,
-                        child: Text('Sign Up',
-                            style: TextStyle(
-                                color: constantColors.whiteColor,
-                                fontSize: 18.0,
-                                fontWeight: FontWeight.bold)),
-                        onPressed: () {
-                          Provider.of<WelcomeUtils>(context, listen: false)
-                              .selectAvatarOptionssheet(context);
-                        })
                   ],
-                )
+                ),
+                Spacer(flex: 1),
+                RichText(
+                  text: TextSpan(
+                    text: "New User select SignUp to Register",
+                    style: TextStyle(
+                        fontFamily: 'Poppins',
+                        color: constantColors.blackColor,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 20.0),
+                  ),
+                ),
+                MaterialButton(
+                    color: constantColors.redColor,
+                    child: Text('Sign Up',
+                        style: TextStyle(
+                            color: constantColors.whiteColor,
+                            fontSize: 18.0,
+                            fontWeight: FontWeight.bold)),
+                    onPressed: () {
+                      Provider.of<WelcomeUtils>(context, listen: false)
+                          .selectAvatarOptionssheet(context);
+                    }),
+                Spacer(flex: 2)
               ],
             ),
             height: MediaQuery.of(context).size.height * 50.5,
