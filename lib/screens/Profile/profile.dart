@@ -4,9 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:the_social/constants/Constantcolors.dart';
 import 'package:the_social/screens/Profile/profilehelpers.dart';
-import 'package:the_social/services/authentication.dart';
+import 'package:the_social/Backend/authentication.dart';
 
-class profile extends StatelessWidget {
+class Profile extends StatelessWidget {
   ConstantColors constantColors = ConstantColors();
   @override
   Widget build(BuildContext context) {

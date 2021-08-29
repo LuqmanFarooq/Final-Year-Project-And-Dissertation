@@ -6,7 +6,7 @@ import 'package:the_social/screens/Feed/feed.dart';
 import 'package:the_social/screens/Homepage/homepagehelpers.dart';
 import 'package:the_social/screens/Profile/profile.dart';
 import 'package:the_social/screens/Profile/profilehelpers.dart';
-import 'package:the_social/services/firebaseoperations.dart';
+import 'package:the_social/Backend/firebaseoperations.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -42,7 +42,7 @@ class _HomePageState extends State<HomePage> {
           backgroundColor: constantColors.darkColor,
           body: PageView(
             controller: homepageController,
-            children: [Feed(), ChatRoom(), profile()],
+            children: [Feed(), ChatRoom(), Profile()],
             physics: NeverScrollableScrollPhysics(),
             onPageChanged: (page) {
               setState(() {

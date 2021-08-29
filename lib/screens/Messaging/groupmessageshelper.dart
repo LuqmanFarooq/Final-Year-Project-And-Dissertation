@@ -1,10 +1,10 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:the_social/services/authentication.dart';
-import 'package:the_social/services/firebaseoperations.dart';
+import 'package:the_social/Backend/authentication.dart';
+import 'package:the_social/Backend/firebaseoperations.dart';
 
-class groupMessagingHelper with ChangeNotifier {
+class GroupMessagingHelper with ChangeNotifier {
   showmessages(BuildContext context, DocumentSnapshot documentSnapshot) {
     return StreamBuilder<QuerySnapshot>(
         stream: FirebaseFirestore.instance

@@ -7,8 +7,8 @@ import 'package:provider/provider.dart';
 import 'package:the_social/constants/Constantcolors.dart';
 import 'package:the_social/screens/Homepage/homepage.dart';
 import 'package:the_social/screens/WelcomePage/WelcomePageUtils.dart';
-import 'package:the_social/services/authentication.dart';
-import 'package:the_social/services/firebaseoperations.dart';
+import 'package:the_social/Backend/authentication.dart';
+import 'package:the_social/Backend/firebaseoperations.dart';
 import 'package:email_validator/email_validator.dart';
 
 class WelcomeService with ChangeNotifier {

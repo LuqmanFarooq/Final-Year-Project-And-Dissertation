@@ -12,10 +12,10 @@ import 'package:the_social/screens/WelcomePage/WelcomePageServices.dart';
 import 'package:the_social/screens/WelcomePage/WelcomePageUtils.dart';
 import 'package:the_social/screens/Splashscreen/Splashscreen.dart';
 import 'package:the_social/screens/userprofile/userprofilehelper.dart';
-import 'package:the_social/services/authentication.dart';
-import 'package:the_social/services/firebaseoperations.dart';
-import 'package:the_social/utils/postfunctions.dart';
-import 'package:the_social/utils/uploadpost.dart';
+import 'package:the_social/Backend/authentication.dart';
+import 'package:the_social/Backend/firebaseoperations.dart';
+import 'package:the_social/Post/postfunctions.dart';
+import 'package:the_social/Post/uploadpost.dart';
 
 //this is the main screen
 //This function tells Dart where the program starts
@@ -53,7 +53,7 @@ class MyApp extends StatelessWidget {
           //here I have listed all the providers we have used in out project it is nessary to mention them
           //here otherwise we cant render the set state
           //further change notifiacation method enables us to render and use the updated state in the change notifier class where it is extended.
-          ChangeNotifierProvider(create: (_) => groupMessagingHelper()),
+          ChangeNotifierProvider(create: (_) => GroupMessagingHelper()),
           ChangeNotifierProvider(create: (_) => ChatRoomHelpers()),
           ChangeNotifierProvider(create: (_) => UserProfileHelper()),
           ChangeNotifierProvider(create: (_) => PostFunctions()),

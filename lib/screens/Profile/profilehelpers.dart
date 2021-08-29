@@ -7,8 +7,8 @@ import 'package:provider/provider.dart';
 import 'package:the_social/constants/Constantcolors.dart';
 import 'package:the_social/screens/WelcomePage/WelcomePage.dart';
 import 'package:the_social/screens/userprofile/userprofile.dart';
-import 'package:the_social/services/authentication.dart';
-import 'package:the_social/utils/postfunctions.dart';
+import 'package:the_social/Backend/authentication.dart';
+import 'package:the_social/Post/postfunctions.dart';
 
 class ProfileHelpers with ChangeNotifier {
   ConstantColors constantColors = ConstantColors();

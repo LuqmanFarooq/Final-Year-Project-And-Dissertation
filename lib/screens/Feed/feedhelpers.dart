@@ -7,9 +7,9 @@ import 'package:page_transition/page_transition.dart';
 import 'package:provider/provider.dart';
 import 'package:the_social/constants/Constantcolors.dart';
 import 'package:the_social/screens/userprofile/userprofile.dart';
-import 'package:the_social/services/authentication.dart';
-import 'package:the_social/utils/postfunctions.dart';
-import 'package:the_social/utils/uploadpost.dart';
+import 'package:the_social/Backend/authentication.dart';
+import 'package:the_social/Post/postfunctions.dart';
+import 'package:the_social/Post/uploadpost.dart';
 
 class FeedHelpers with ChangeNotifier {
   ConstantColors constantColors = ConstantColors();

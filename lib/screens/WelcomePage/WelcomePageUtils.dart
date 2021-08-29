@@ -5,7 +5,6 @@ import 'package:image_picker/image_picker.dart';
 import 'package:provider/provider.dart';
 import 'package:the_social/constants/Constantcolors.dart';
 import 'package:the_social/screens/WelcomePage/WelcomePageServices.dart';
-import 'package:the_social/services/firebaseoperations.dart';
 
 class WelcomeUtils with ChangeNotifier {
   ConstantColors constantColors = ConstantColors();

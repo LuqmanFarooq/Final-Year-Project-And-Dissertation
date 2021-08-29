@@ -42,7 +42,7 @@ class GroupMessages extends StatelessWidget {
             child: Column(
               children: [
                 AnimatedContainer(
-                    child: Provider.of<groupMessagingHelper>(context,
+                    child: Provider.of<GroupMessagingHelper>(context,
                             listen: false)
                         .showmessages(context, documentSnapshot),
                     duration: Duration(seconds: 1),
@@ -75,7 +75,7 @@ class GroupMessages extends StatelessWidget {
                         backgroundColor: Colors.amber.withOpacity(0.2),
                         onPressed: () {
                           if (messageControler.text.isNotEmpty) {
-                            Provider.of<groupMessagingHelper>(context,
+                            Provider.of<GroupMessagingHelper>(context,
                                     listen: false)
                                 .sendMessage(context, documentSnapshot,
                                     messageControler);
