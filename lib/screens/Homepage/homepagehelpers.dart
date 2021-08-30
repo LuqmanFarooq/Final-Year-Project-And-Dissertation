@@ -5,11 +5,14 @@ import 'package:provider/provider.dart';
 import 'package:the_social/constants/Constantcolors.dart';
 import 'package:the_social/Backend/firebaseoperations.dart';
 
+//we have used helper classes as we have used provider to manage the state of data
+// This Class is responsible for custom navigation bar
 class HomePageHelpers with ChangeNotifier {
   ConstantColors constantColors = ConstantColors();
 
   Widget bottomNavBar(
       BuildContext context, int index, PageController pageController) {
+    //here is customnavigation bar or we say bottom navigation.
     return CustomNavigationBar(
       currentIndex: index,
       bubbleCurve: Curves.bounceIn,
@@ -26,6 +29,7 @@ class HomePageHelpers with ChangeNotifier {
       },
       backgroundColor: Color(0xff040307),
       items: [
+        //here are the three icons of bottom navigation home, message and profile respectively
         CustomNavigationBarItem(icon: Icon(EvaIcons.home)),
         CustomNavigationBarItem(icon: Icon(Icons.message_rounded)),
         CustomNavigationBarItem(

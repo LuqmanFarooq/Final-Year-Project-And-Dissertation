@@ -5,6 +5,8 @@ import 'package:provider/provider.dart';
 import 'package:the_social/constants/Constantcolors.dart';
 import 'package:the_social/screens/userprofile/userprofilehelper.dart';
 
+//this is same as profile.dart
+// its for other users profile display
 class UserProfile extends StatelessWidget {
   final String userUid;
   UserProfile({@required this.userUid});
@@ -31,6 +33,7 @@ class UserProfile extends StatelessWidget {
                   } else {
                     return Column(
                       children: [
+                        // getting profile counts, recently added and posts by calling the defined methods in userprofilehelpers through provider
                         Provider.of<UserProfileHelper>(context, listen: false)
                             .headerprofile(context, snapshot, userUid),
                         Provider.of<UserProfileHelper>(context, listen: false)

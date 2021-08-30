@@ -11,6 +11,7 @@ import 'package:the_social/Backend/authentication.dart';
 import 'package:the_social/Post/postfunctions.dart';
 import 'package:the_social/Post/uploadpost.dart';
 
+// this class is responsible for helping the feed class for timeline feed functionality
 class FeedHelpers with ChangeNotifier {
   ConstantColors constantColors = ConstantColors();
   Widget appBar(BuildContext context) {
@@ -49,6 +50,7 @@ class FeedHelpers with ChangeNotifier {
     );
   }
 
+// this is the body of feed screen where you see posts here we are displaying all posts.
   Widget feedBody(BuildContext context) {
     return SingleChildScrollView(
       child: Padding(
@@ -83,6 +85,7 @@ class FeedHelpers with ChangeNotifier {
     );
   }
 
+//this method helps to fetch the posts along with their associated data from firestore database.
   Widget loadposts(
       BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
     return Padding(

@@ -6,6 +6,8 @@ import 'package:the_social/constants/Constantcolors.dart';
 import 'package:the_social/screens/Chatroom/chatroomhelpers.dart';
 import 'package:the_social/screens/Homepage/homepage.dart';
 
+//here is chatroom class in this class we have a button through which we can create a chatroom.
+//plus we have a list of all chatrooms till now thats what this class is all about
 class ChatRoom extends StatelessWidget {
   ConstantColors constantColors = ConstantColors();
   @override
@@ -18,6 +20,7 @@ class ChatRoom extends StatelessWidget {
       child: Scaffold(
         floatingActionButton: FloatingActionButton(
           onPressed: () {
+            //here using provider we call the "showCreateChatroomSheet" to create a bottom sheet that we created in chatroom helper.
             Provider.of<ChatRoomHelpers>(context, listen: false)
                 .showCreateChatroomSheet(context);
           },
@@ -68,6 +71,7 @@ class ChatRoom extends StatelessWidget {
                 )
               ])),
         ),
+        //here in the body we have a list of chatrooms
         body: Container(
           height: MediaQuery.of(context).size.height,
           width: MediaQuery.of(context).size.width,

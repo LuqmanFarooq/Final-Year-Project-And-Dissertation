@@ -4,7 +4,9 @@ import 'package:provider/provider.dart';
 import 'package:the_social/Backend/authentication.dart';
 import 'package:the_social/Backend/firebaseoperations.dart';
 
+//this class helps us to fetch and render data from firebase to showmessage screen.
 class GroupMessagingHelper with ChangeNotifier {
+  // fetching messages from database collection and displayig them
   showmessages(BuildContext context, DocumentSnapshot documentSnapshot) {
     return StreamBuilder<QuerySnapshot>(
         stream: FirebaseFirestore.instance
@@ -90,6 +92,7 @@ class GroupMessagingHelper with ChangeNotifier {
         });
   }
 
+  //saving the messages along with sender details to firestore messages subcollection
   sendMessage(BuildContext context, DocumentSnapshot documentSnapshot,
       TextEditingController messageControler) {
     return FirebaseFirestore.instance

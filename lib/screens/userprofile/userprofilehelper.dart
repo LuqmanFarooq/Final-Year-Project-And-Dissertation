@@ -12,8 +12,10 @@ import 'package:the_social/Backend/authentication.dart';
 import 'package:the_social/Backend/firebaseoperations.dart';
 import 'package:the_social/Post/postfunctions.dart';
 
+// this class is responsible for providing all the function to the userprofile class to display other user's profile and their data
 class UserProfileHelper with ChangeNotifier {
   ConstantColors constantColors = ConstantColors();
+
   Widget appBar(BuildContext context) {
     return AppBar(
       centerTitle: true,
@@ -58,6 +60,7 @@ class UserProfileHelper with ChangeNotifier {
     );
   }
 
+// the top of the profile which contains profile counts and user display picture and name
   Widget headerprofile(BuildContext context,
       AsyncSnapshot<DocumentSnapshot> snapshot, String userUid) {
     return SizedBox(
@@ -331,6 +334,7 @@ class UserProfileHelper with ChangeNotifier {
     );
   }
 
+// recently addded section of profile page where we fetch the posts from all following users and display them.
   Widget middleProfile(BuildContext context, dynamic snapshot) {
     return Padding(
       padding: const EdgeInsets.all(8.0),
@@ -375,6 +379,7 @@ class UserProfileHelper with ChangeNotifier {
     );
   }
 
+// here is the bottom section of profile page where we fetch all posts of the user from firestore and display them
   Widget footerProfile(BuildContext context, dynamic snapshot) {
     return Padding(
       padding: const EdgeInsets.all(8.0),
@@ -456,6 +461,7 @@ class UserProfileHelper with ChangeNotifier {
         });
   }
 
+// fetching follower data and display them in a listview
   checkFollowersSheet(BuildContext context, dynamic snapshot) {
     return showModalBottomSheet(
         context: context,
@@ -509,7 +515,10 @@ class UserProfileHelper with ChangeNotifier {
                                       height: 0.0,
                                     )
                                   : MaterialButton(
-                                      onPressed: () {},
+                                      onPressed: () {
+                                        /*Provider.of<FirebaseOpertrations>(context, listen: false)
+                                    .unFollowUser(userUid, followingDocid)*/
+                                      },
                                       color: constantColors.blackColor,
                                       child: Text('Unfollow',
                                           style: TextStyle(
@@ -548,6 +557,7 @@ class UserProfileHelper with ChangeNotifier {
         });
   }
 
+// fetching posts details here such as like comments,commets etc
   showpostDetails(BuildContext context, DocumentSnapshot documentSnapshot) {
     return showModalBottomSheet(
         context: context,

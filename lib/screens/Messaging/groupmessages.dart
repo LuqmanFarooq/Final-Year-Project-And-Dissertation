@@ -7,6 +7,8 @@ import 'package:the_social/screens/Chatroom/chatroom.dart';
 import 'package:the_social/screens/Homepage/homepage.dart';
 import 'package:the_social/screens/Messaging/groupmessageshelper.dart';
 
+//here is the class for group messages.
+//here we have the bottom sheet where user enter a message and which will be shown in the screen above
 class GroupMessages extends StatelessWidget {
   ConstantColors constantColors = ConstantColors();
   final DocumentSnapshot documentSnapshot;
@@ -42,6 +44,7 @@ class GroupMessages extends StatelessWidget {
             child: Column(
               children: [
                 AnimatedContainer(
+                    // using provider to call showmessages function from GroupMessagingHelper class to display messages here
                     child: Provider.of<GroupMessagingHelper>(context,
                             listen: false)
                         .showmessages(context, documentSnapshot),

@@ -98,6 +98,15 @@ class FirebaseOpertrations with ChangeNotifier {
     });
   }
 
+  Future unFollowUser(String followingUid, String followingDocid) async {
+    return FirebaseFirestore.instance
+        .collection('users')
+        .doc(followingUid)
+        .collection('followers')
+        .doc(followingDocid)
+        .delete();
+  }
+
   Future submitChatroomData(String chatroomName, dynamic chatroomData) async {
     return FirebaseFirestore.instance
         .collection('chatrooms')

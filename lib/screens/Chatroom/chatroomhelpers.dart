@@ -9,13 +9,14 @@ import 'package:the_social/Backend/authentication.dart';
 import 'package:the_social/Backend/firebaseoperations.dart';
 import 'package:timeago/timeago.dart' as timeago;
 
+//this class has all the functions which help us in chat functionality
 class ChatRoomHelpers with ChangeNotifier {
   String chatroomId;
   String get getChatroomId => chatroomId;
 
   String imageTimePosted;
   String get getImageTimePosted => imageTimePosted;
-
+//this method helps us to have a option how much time ago we had a chatroom created.
   showTimeAgo(dynamic timedata) {
     Timestamp time = timedata;
     DateTime dateTime = time.toDate();
@@ -26,6 +27,7 @@ class ChatRoomHelpers with ChangeNotifier {
 
   ConstantColors constantColors = ConstantColors();
   final TextEditingController chatnameController = TextEditingController();
+  //this is chatroom bottom sheet in which we ask user to enter chatroom name
   showCreateChatroomSheet(BuildContext context) {
     return showModalBottomSheet(
         isScrollControlled: true,
@@ -117,6 +119,7 @@ class ChatRoomHelpers with ChangeNotifier {
         });
   }
 
+//this widget help us to have chatroomlist
   showchatrooms(BuildContext context) {
     return StreamBuilder<QuerySnapshot>(
         stream: FirebaseFirestore.instance.collection('chatrooms').snapshots(),

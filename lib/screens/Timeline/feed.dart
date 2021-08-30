@@ -3,6 +3,8 @@ import 'package:provider/provider.dart';
 import 'package:the_social/constants/Constantcolors.dart';
 import 'package:the_social/screens/Timeline/feedhelpers.dart';
 
+//this page is homefeed here we have defined everything in the helper class and called it here using provider
+// this class is responsible for timeline feed
 class Feed extends StatelessWidget {
   ConstantColors constantColors = ConstantColors();
   @override

@@ -220,6 +220,7 @@ class PostFunctions with ChangeNotifier {
     });
   }
 
+// responsibile for adding comments, fetching them form database and displaying them
   showCommentsSheet(
       BuildContext context, DocumentSnapshot snapshot, String docId) {
     return showModalBottomSheet(
@@ -242,7 +243,7 @@ class PostFunctions with ChangeNotifier {
                     ),
                   ),
                   Container(
-                    width: 150.0,
+                    width: 105.0,
                     decoration: BoxDecoration(
                       color: Colors.black,
                       border: Border.all(color: constantColors.blackColor),
@@ -259,7 +260,7 @@ class PostFunctions with ChangeNotifier {
                     ),
                   ),
                   Container(
-                    height: MediaQuery.of(context).size.height * 10,
+                    height: MediaQuery.of(context).size.height * 0.3,
                     width: MediaQuery.of(context).size.width,
                     child: StreamBuilder<QuerySnapshot>(
                       stream: FirebaseFirestore.instance

@@ -6,11 +6,13 @@ import 'package:the_social/constants/Constantcolors.dart';
 import 'package:the_social/screens/Profile/profilehelpers.dart';
 import 'package:the_social/Backend/authentication.dart';
 
+//This is the class responsible for implementation of Profile page and its data
 class Profile extends StatelessWidget {
   ConstantColors constantColors = ConstantColors();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        // heading on top
         appBar: AppBar(
           centerTitle: true,
           leading: IconButton(
@@ -25,6 +27,7 @@ class Profile extends StatelessWidget {
                   EvaIcons.logInOutline,
                   color: constantColors.whiteColor,
                 ),
+                // logutdialog method called through provider for logout functionality
                 onPressed: () {
                   Provider.of<ProfileHelpers>(context, listen: false)
                       .logutdialog(context);
@@ -67,6 +70,7 @@ class Profile extends StatelessWidget {
                   } else {
                     return Column(
                       children: [
+                        // getting profile counts, recently added and posts by calling the defined methods in profile helpers through provider
                         Provider.of<ProfileHelpers>(context, listen: false)
                             .headerprofile(context, snapshot),
                         Provider.of<ProfileHelpers>(context, listen: false)

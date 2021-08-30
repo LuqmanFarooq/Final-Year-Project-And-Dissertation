@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:the_social/constants/Constantcolors.dart';
 import 'package:the_social/screens/Chatroom/chatroomhelpers.dart';
-import 'package:the_social/screens/Feed/feedhelpers.dart';
 import 'package:the_social/screens/Homepage/homepagehelpers.dart';
 import 'package:the_social/screens/Messaging/groupmessageshelper.dart';
 import 'package:the_social/screens/Profile/profilehelpers.dart';
@@ -12,6 +11,7 @@ import 'package:the_social/screens/WelcomePage/WelcomePageServices.dart';
 import 'package:the_social/screens/WelcomePage/WelcomePageUtils.dart';
 import 'package:the_social/screens/Splashscreen/Splashscreen.dart';
 import 'package:the_social/screens/userprofile/userprofilehelper.dart';
+import 'package:the_social/screens/Timeline/feedhelpers.dart';
 import 'package:the_social/Backend/authentication.dart';
 import 'package:the_social/Backend/firebaseoperations.dart';
 import 'package:the_social/Post/postfunctions.dart';
@@ -50,7 +50,7 @@ class MyApp extends StatelessWidget {
           home: Splashscreen(),
         ),
         providers: [
-          //here I have listed all the providers we have used in out project it is nessary to mention them
+          //here we have listed all the providers we have used in out project it is nessary to mention them
           //here otherwise we cant render the set state
           //further change notifiacation method enables us to render and use the updated state in the change notifier class where it is extended.
           ChangeNotifierProvider(create: (_) => GroupMessagingHelper()),

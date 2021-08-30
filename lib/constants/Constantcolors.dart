@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+//these files are the constant colors used in whole app.
+//we defined constant colors here because then we dont have to change color in every file if we change any color.
 class ConstantColors {
   final Color lightColor = Colors.white;
   final Color darkColor = Colors.black;

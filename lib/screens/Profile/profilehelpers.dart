@@ -10,8 +10,10 @@ import 'package:the_social/screens/userprofile/userprofile.dart';
 import 'package:the_social/Backend/authentication.dart';
 import 'package:the_social/Post/postfunctions.dart';
 
+//This is the class that contains all the functions responsible for fetching profile data from firebase and displaying them
 class ProfileHelpers with ChangeNotifier {
   ConstantColors constantColors = ConstantColors();
+  // the top of the profile which contains profile counts and user display picture and name
   Widget headerprofile(BuildContext context, dynamic snapshot) {
     return SizedBox(
       height: MediaQuery.of(context).size.height * 0.38,
@@ -209,6 +211,7 @@ class ProfileHelpers with ChangeNotifier {
     );
   }
 
+// recently addded section of profile page where we fetch the posts from all following users and display them.
   Widget middleProfile(BuildContext context, dynamic snapshot) {
     return Column(
       mainAxisAlignment: MainAxisAlignment.start,
@@ -293,6 +296,7 @@ class ProfileHelpers with ChangeNotifier {
     );
   }
 
+// here is the bottom section of profile page where we fetch all posts of the user from firestore and display them
   Widget footerProfile(BuildContext context, dynamic snapshot) {
     return Padding(
       padding: const EdgeInsets.all(8.0),
@@ -340,6 +344,7 @@ class ProfileHelpers with ChangeNotifier {
     );
   }
 
+// logout functionality implemented here
   logutdialog(BuildContext context) {
     return showDialog(
         context: context,
@@ -389,6 +394,7 @@ class ProfileHelpers with ChangeNotifier {
         });
   }
 
+// fetching posts details here such as like comments,commets etc
   showpostDetails(BuildContext context, DocumentSnapshot documentSnapshot) {
     return showModalBottomSheet(
         context: context,
@@ -552,6 +558,7 @@ class ProfileHelpers with ChangeNotifier {
         });
   }
 
+// responsible for fetching all users whom a user is following and functionlaity to unfollow them
   checkFollowingSheet(BuildContext context, dynamic snapshot) {
     return showModalBottomSheet(
         context: context,
