@@ -1,0 +1,79 @@
+ \documentclass[12pt,a4paper,oneside,openany]{book}
+
+\usepackage{xcolor}
+\usepackage{minted}
+\usepackage[utf8]{inputenc}
+\usepackage{tikz}
+\usepackage{caption}
+\usepackage{gensymb}
+\usepackage{lmodern}
+\usepackage{multirow}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{adjustbox}
+\usepackage{upquote}
+\usepackage{amsmath}
+\usepackage{titlesec}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+\usepackage{biblatex}
+\usepackage{float}
+
+\usetikzlibrary{mindmap,shadows, shapes, arrows, positioning}
+\addbibresource{bibliography.bib}
+%% Change these:
+\newcommand{\projecttitle}{Applied Project And Minor Dissertation}
+\newcommand{\projectauthor}{Muhammad Luqman \\[0.2cm] Muhammad Noman Junaid}
+\newcommand{\projectadvisor}{Dr Dominic Carr}
+\newcommand{\projectprogramme}{B.Sc.(Hons) in Software Development}
+\newcommand{\projectdate}{AUGUST 30, 2021}
+%% End of things to change.
+
+
+
+\tikzstyle{rect} = [rectangle, fill=blue!50, text width=4.5em, text centered, minimum height=4em, rounded corners]
+\tikzstyle{line} = [draw, ->, very thick]
+\tikzstyle{oval} = [ellipse, fill=green!50, text width=5em, text centered]
+
+\newcolumntype{x}[1]{>{\centering\arraybackslash\hspace{0pt}}p{#1}}
+
+
+\begin{document}
+  \begin{titlepage}
+    \begin{minipage}[t][6cm]{\textwidth}
+      \centering
+      \rule{\linewidth}{0.5mm} \\[0.4cm]
+      { \LARGE \bfseries \projecttitle \\[0.4cm] }
+      \rule{\linewidth}{0.5mm} \\[0.8cm]
+    \end{minipage}
+    
+    \begin{minipage}[t][6.5cm]{\textwidth}
+      \centering
+      \textbf{\projectauthor}\\[0.5cm]
+      \projectprogramme
+    \end{minipage}
+  
+    \begin{minipage}[t][1cm]{\textwidth}
+      \centering
+      \textsc{\projectdate}
+    \end{minipage}
+      
+    \begin{minipage}[t][3cm]{\textwidth}
+      \centering
+      \textbf{Final Year Project}\\[0.3cm]
+      Supervised by: \projectadvisor \\[0.1cm]
+      Department of Computer Science and Applied Physics\\
+      Galway-Mayo Institute of Technology (GMIT)
+    \end{minipage}
+  
+    \begin{center}    
+      \includegraphics{img/gmit-logo.jpg}
+    \end{center}
+  \end{titlepage}
+  \setcounter{page}{2}
+   \tableofcontents
+  \include{content}
+ 
+
+\end{document}
