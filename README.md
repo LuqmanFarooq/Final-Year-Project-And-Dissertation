@@ -5,7 +5,9 @@
 <h3 align="center">
    City Social
 </h4>
-
+<p align="center">
+<img src="3-Images%20Used/App%20Screenshots/SplashScreen.png" width="350" height="400" alt="App Logo"/>
+</p>
 
 ## Project Details
 Heading     | Details
@@ -28,6 +30,9 @@ A Social Media application that we named "City Social" is an android app which f
 - [Firebase](https://firebase.google.com/)
 - [Apptim](https://www.apptim.com/)
 ## Technology stack
+
+<img src="/3-Images%20Used/Dissertation%20Pics/systemArchitecture.PNG" alt="Technology Stack"/>
+
 - Flutter in the UI and the FrontEnd of the Application.
 - Dart the language used with flutter framework.
 - Firebase Authentication for handling user authenticaton and Cloud Firestore(cloud-hosted, NoSQL database) as backend of the Application.
@@ -37,7 +42,7 @@ A Social Media application that we named "City Social" is an android app which f
 root.
 3. Download the release-apk file.
 4. copy it to any android phone.
-5. install the apk and give permission to trust app installation from unknown sources.
+5. install the apk and give permission to trust app installation from unknown sources.
 6. Open and use the App.
 ## Screens
 - Splash Screen
